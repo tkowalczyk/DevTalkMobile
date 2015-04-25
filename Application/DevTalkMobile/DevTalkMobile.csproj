@@ -55,6 +55,7 @@
     <Compile Include="Services\IFeedRepository.cs" />
     <Compile Include="Helpers\StaticData.cs" />
     <Compile Include="Services\DefaultHttpClient\FeedRepository.cs" />
+    <Compile Include="CustomControls\FeedItemCell.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
@@ -67,6 +68,7 @@
     <Folder Include="Services\" />
     <Folder Include="Helpers\" />
     <Folder Include="Services\DefaultHttpClient\" />
+    <Folder Include="Views\XAML\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Net.Http">

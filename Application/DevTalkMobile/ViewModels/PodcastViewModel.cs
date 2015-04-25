@@ -44,6 +44,12 @@ namespace DevTalkMobile.ViewModels
 		{
 			get { return loadItemsCommand ?? (loadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand())); }
 		}
+
+		private Command<string> loadFilteredItemsCommand;
+		public Command<string> LoadFilteredItemsCommand
+		{
+			get { return loadFilteredItemsCommand ?? (loadFilteredItemsCommand = new Command<string>(async filter => await ExecuteLoadFilteredItemsCommand(filter))); }
+		}
 		#endregion
 
 		#region Private Methods
@@ -69,6 +75,33 @@ namespace DevTalkMobile.ViewModels
 			{
 				var page = new ContentPage();
 				var result = page.DisplayAlert("Error", "Unable to load podcast feed. " + ex.Message, "OK");
+			}
+
+			IsBusy = false;
+		}
+
+		private async Task ExecuteLoadFilteredItemsCommand(string filter)
+		{
+			if (IsBusy)
+				return;
+
+			IsBusy = true;
+
+			try
+			{
+				FeedItems.Clear();
+
+				var items = await _feedRepository.GetFilteredFeed(StaticData.RssFeed, filter);
+
+				foreach (var item in items)
+				{
+					FeedItems.Add(item);
+				}
+			}
+			catch (Exception ex)
+			{
+				var page = new ContentPage();
+				var result = page.DisplayAlert("Error", "Unable to load filtered podcast feed. " + ex.Message, "OK");
 			}
 
 			IsBusy = false;

@@ -1,4 +1,6 @@
 ﻿using System;
+using DevTalkMobile.CustomControls;
+using DevTalkMobile.Models;
 using DevTalkMobile.ViewModels;
 using Xamarin.Forms;
 
@@ -9,12 +11,83 @@ namespace DevTalkMobile.Views
 		#region Ctor
 		public PodcastView ()
 		{
-			this.Content = new Label
+			this.Title = "Podcasts";
+
+			#region MainGrid
+			Grid mainGrid = new Grid
 			{
-				Text = "PodcastView",
-				VerticalOptions = LayoutOptions.CenterAndExpand,
-				HorizontalOptions = LayoutOptions.CenterAndExpand,
+				VerticalOptions = LayoutOptions.FillAndExpand,
+				RowDefinitions = 
+				{
+					new RowDefinition { Height = GridLength.Auto},
+					new RowDefinition { Height = GridLength.Auto},
+					new RowDefinition { Height = new GridLength(10, GridUnitType.Star)},
+				},
+				ColumnDefinitions = 
+				{
+					new ColumnDefinition { Width = new GridLength(10, GridUnitType.Star)}
+				}
 			};
+			#endregion
+
+			#region SearchBar
+			SearchBar searchBar = new SearchBar
+			{
+				Placeholder = "Search by podcast name",
+			};
+
+			searchBar.TextChanged += async (sender, e) =>
+			{
+				ViewModel.LoadFilteredItemsCommand.Execute(searchBar.Text);
+			};
+
+			mainGrid.Children.Add(searchBar, 0, 0);
+			#endregion
+
+			#region ActivityIndicator
+			var activity = new ActivityIndicator
+			{
+				HorizontalOptions = LayoutOptions.Center,
+				VerticalOptions = LayoutOptions.Center,
+				IsEnabled = true
+			};
+
+			activity.SetBinding(ActivityIndicator.IsVisibleProperty, "IsBusy");
+			activity.SetBinding(ActivityIndicator.IsRunningProperty, "IsBusy");
+
+			mainGrid.Children.Add(activity, 0, 1);
+			#endregion
+
+			#region QuestList
+			ListView listView = new ListView();
+
+			listView.ItemsSource = ViewModel.FeedItems;
+
+			var cell = new DataTemplate(typeof(FeedItemCell));
+
+			listView.ItemTapped += (sender, args) =>
+			{
+				if (listView.SelectedItem == null)
+					return;
+
+				ViewModel.SelectedFeedItem = listView.SelectedItem as FeedItem;
+
+				var selectedFeed = listView.SelectedItem as FeedItem;
+
+				if (selectedFeed != null)
+				{
+					
+				}
+
+				listView.SelectedItem = null;
+			};
+
+			listView.ItemTemplate = cell;
+
+			mainGrid.Children.Add(listView, 0, 2);
+			#endregion
+
+			this.Content = mainGrid;
 
 			// Accomodate iPhone status bar.
 			this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
