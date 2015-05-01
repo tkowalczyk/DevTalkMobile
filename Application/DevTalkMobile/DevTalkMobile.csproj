@@ -56,6 +56,11 @@
     <Compile Include="Helpers\StaticData.cs" />
     <Compile Include="Services\DefaultHttpClient\FeedRepository.cs" />
     <Compile Include="CustomControls\FeedItemCell.cs" />
+    <Compile Include="ViewModels\PodcastPlayViewModel.cs" />
+    <Compile Include="Views\XAML\PodcastPlayView.xaml.cs">
+      <DependentUpon>PodcastPlayView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\AudioPlayer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
@@ -92,5 +97,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\XAML\PodcastPlayView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

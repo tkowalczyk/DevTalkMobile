@@ -140,6 +140,14 @@
     <BundleResource Include="Resources\podcast%402x.png" />
     <BundleResource Include="Resources\slideout.png" />
     <BundleResource Include="Resources\slideout%402x.png" />
+    <BundleResource Include="Resources\ic_pause.png" />
+    <BundleResource Include="Resources\ic_pause%402x.png" />
+    <BundleResource Include="Resources\ic_play.png" />
+    <BundleResource Include="Resources\ic_play%402x.png" />
+    <BundleResource Include="Resources\ic_share.png" />
+    <BundleResource Include="Resources\ic_share%402x.png" />
+    <BundleResource Include="Resources\ic_stop.png" />
+    <BundleResource Include="Resources\ic_stop%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -152,6 +160,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderers\AudioPlayerRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="ITunesArtwork" />
@@ -160,4 +169,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <Import Project="..\packages\Xamarin.Forms.1.4.2.6359\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.2.6359\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <ItemGroup>
+    <Folder Include="Renderers\" />
+  </ItemGroup>
 </Project>

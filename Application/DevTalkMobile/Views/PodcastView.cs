@@ -2,6 +2,7 @@
 using DevTalkMobile.CustomControls;
 using DevTalkMobile.Models;
 using DevTalkMobile.ViewModels;
+using DevTalkMobile.Views.XAML;
 using Xamarin.Forms;
 
 namespace DevTalkMobile.Views
@@ -76,7 +77,7 @@ namespace DevTalkMobile.Views
 
 				if (selectedFeed != null)
 				{
-					
+					this.Navigation.PushAsync(new PodcastPlayView(selectedFeed));
 				}
 
 				listView.SelectedItem = null;
