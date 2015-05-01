@@ -130,6 +130,14 @@
     <BundleResource Include="Resources\Icon-Small-40.png" />
     <BundleResource Include="Resources\Icon-Small-40%402x.png" />
     <BundleResource Include="Resources\Icon-Small-40%403x.png" />
+    <BundleResource Include="Resources\about.png" />
+    <BundleResource Include="Resources\about%402x.png" />
+    <BundleResource Include="Resources\chat.png" />
+    <BundleResource Include="Resources\chat%402x.png" />
+    <BundleResource Include="Resources\home.png" />
+    <BundleResource Include="Resources\home%402x.png" />
+    <BundleResource Include="Resources\podcast.png" />
+    <BundleResource Include="Resources\podcast%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
