@@ -1,4 +1,5 @@
 ﻿using System;
+using DevTalkMobile.Helpers;
 using DevTalkMobile.Models;
 using DevTalkMobile.ViewModels;
 using DevTalkMobile.Views;
@@ -35,6 +36,9 @@ namespace DevTalkMobile.Views
 		#region Ctor
 		public MasterView(MenuViewModel viewModel)
 		{
+			/// Hamburger menu icon
+			this.Icon = StaticData.MainMenuIcon;
+
 			this.BindingContext = viewModel;
 
 			this.Title = "DevTalk";

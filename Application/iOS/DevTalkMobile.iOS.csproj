@@ -138,6 +138,8 @@
     <BundleResource Include="Resources\home%402x.png" />
     <BundleResource Include="Resources\podcast.png" />
     <BundleResource Include="Resources\podcast%402x.png" />
+    <BundleResource Include="Resources\slideout.png" />
+    <BundleResource Include="Resources\slideout%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

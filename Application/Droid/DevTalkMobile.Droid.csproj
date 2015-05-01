@@ -102,6 +102,10 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\chat.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\home.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\podcast.png" />
+    <AndroidResource Include="Resources\drawable\slideout.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\slideout.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\slideout.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\slideout.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
