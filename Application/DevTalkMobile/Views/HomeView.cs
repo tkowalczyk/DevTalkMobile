@@ -8,6 +8,8 @@ namespace DevTalkMobile.Views
 	{
 		public HomeView ()
 		{
+			this.Title = "DevTalk";
+
 			this.Content = new Label
 			{
 				Text = "HomeView",
