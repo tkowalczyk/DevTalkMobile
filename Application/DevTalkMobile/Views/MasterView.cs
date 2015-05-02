@@ -29,7 +29,6 @@ namespace DevTalkMobile.Views
 		#region Menu
 		private HomeView home;
 		private AboutView about;
-		private ChatView chat;
 		private PodcastView podcast;
 		#endregion
 
@@ -78,14 +77,6 @@ namespace DevTalkMobile.Views
 							about = new AboutView();
 
 						PageSelection = about;
-						break;
-					case MenuType.Chat:
-						{
-						if (chat == null)
-							chat = new ChatView();
-
-						PageSelection = chat;
-						}
 						break;
 					case MenuType.Podcast:
 						if (podcast == null)
