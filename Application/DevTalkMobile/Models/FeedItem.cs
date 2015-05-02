@@ -5,11 +5,22 @@ namespace DevTalkMobile.Models
 {
 	public class FeedItem : BaseChangedModel
 	{
+		private const int MAX_TITLE_LENGTH = 35;
 		public FeedItem ()
 		{
 		}
 
-		public string Title { get; set; }
+		private string title;
+		public string Title 
+		{ 
+			get { return title;}
+			set {
+				if (!string.IsNullOrWhiteSpace(value) && value.Length > MAX_TITLE_LENGTH)
+					title = value.Substring (0, MAX_TITLE_LENGTH) + "...";
+				else
+					title = value;
+			}
+		}
 		public string Description { get; set; }
 		public string Link { get; set; }
 
