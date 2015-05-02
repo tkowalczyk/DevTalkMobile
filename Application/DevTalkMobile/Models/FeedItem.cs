@@ -26,6 +26,13 @@ namespace DevTalkMobile.Models
 			}
 		}
 
+		private decimal progress = 0.0M;
+		public decimal Progress
+		{
+			get { return progress; }
+			set { progress = value; OnPropertyChanged("Progress"); }
+		}
+
 		public string Category { get; set; }
 		public string Mp3Url { get; set; }
 		public int Id { get; set; }
