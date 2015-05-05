@@ -159,6 +159,8 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renderers\AudioPlayerRenderer.cs" />
+    <Compile Include="Services\AppleConnection.cs" />
+    <Compile Include="Services\Connectivity\Reachability.cs" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="ITunesArtwork" />
@@ -169,5 +171,7 @@
   <Import Project="..\packages\Xamarin.Forms.1.4.2.6359\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.2.6359\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <ItemGroup>
     <Folder Include="Renderers\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Connectivity\" />
   </ItemGroup>
 </Project>

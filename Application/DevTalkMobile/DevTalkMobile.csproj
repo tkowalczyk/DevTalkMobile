@@ -61,6 +61,8 @@
       <DependentUpon>PodcastPlayView.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\AudioPlayer.cs" />
+    <Compile Include="Services\IConnectivity.cs" />
+    <Compile Include="Services\Connectivity\ConnectionType.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
@@ -74,6 +76,7 @@
     <Folder Include="Helpers\" />
     <Folder Include="Services\DefaultHttpClient\" />
     <Folder Include="Views\XAML\" />
+    <Folder Include="Services\Connectivity\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Net.Http">

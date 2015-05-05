@@ -6,6 +6,7 @@ namespace DevTalkMobile.Views
 {
 	public class AboutView : BaseView<AboutViewModel>
 	{
+		#region Ctor
 		public AboutView ()
 		{
 			this.Title = "About";
@@ -136,5 +137,6 @@ namespace DevTalkMobile.Views
 			// Accomodate iPhone status bar.
 			this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
 		}
+		#endregion
 	}
 }

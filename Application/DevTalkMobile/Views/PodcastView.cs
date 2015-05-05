@@ -1,6 +1,8 @@
 ﻿using System;
 using DevTalkMobile.CustomControls;
+using DevTalkMobile.Helpers;
 using DevTalkMobile.Models;
+using DevTalkMobile.Services;
 using DevTalkMobile.ViewModels;
 using DevTalkMobile.Views.XAML;
 using Xamarin.Forms;
@@ -39,7 +41,18 @@ namespace DevTalkMobile.Views
 
 			searchBar.TextChanged += async (sender, e) =>
 			{
-				ViewModel.LoadFilteredItemsCommand.Execute(searchBar.Text);
+				if (this.TypeOfConnection == ConnectionType.NotReachable) 
+				{
+					DisplayAlert(
+						StaticData.ConnectionHeader,
+						StaticData.ConnectionMessage,
+						StaticData.ConnectionButton
+					);
+				}
+				else 
+				{
+					ViewModel.LoadFilteredItemsCommand.Execute(searchBar.Text);
+				}
 			};
 
 			mainGrid.Children.Add(searchBar, 0, 0);
@@ -103,7 +116,18 @@ namespace DevTalkMobile.Views
 			if (ViewModel == null || !ViewModel.CanLoadMore || ViewModel.IsBusy || ViewModel.FeedItems.Count > 0)
 				return;
 
-			ViewModel.LoadItemsCommand.Execute(null);
+			if (this.TypeOfConnection == ConnectionType.NotReachable) 
+			{
+				DisplayAlert(
+					StaticData.ConnectionHeader,
+					StaticData.ConnectionMessage,
+					StaticData.ConnectionButton
+				);
+			}
+			else 
+			{
+				ViewModel.LoadItemsCommand.Execute(null);
+			}
 		}
 		#endregion
 	}
