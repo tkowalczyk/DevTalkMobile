@@ -35,5 +35,23 @@
     </scenes>
     <resources>
         <image name="Icon-60.png" width="180" height="180"/>
+        <image name="Default.png" width="320" height="480"/>
+        <image name="Default-568h.png" width="640" height="1136"/>
+        <image name="Default-Portrait.png" width="768" height="1004"/>
+        <image name="Icon-76.png" width="76" height="76"/>
+        <image name="Icon-Small.png" width="29" height="29"/>
+        <image name="Icon-Small-40.png" width="40" height="40"/>
+        <image name="about.png" width="28" height="28"/>
+        <image name="chat.png" width="28" height="28"/>
+        <image name="home.png" width="28" height="28"/>
+        <image name="podcast.png" width="28" height="28"/>
+        <image name="slideout.png" width="28" height="28"/>
+        <image name="ic_pause.png" width="48" height="48"/>
+        <image name="ic_play.png" width="48" height="48"/>
+        <image name="ic_share.png" width="16" height="22"/>
+        <image name="ic_stop.png" width="48" height="48"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
 </document>
