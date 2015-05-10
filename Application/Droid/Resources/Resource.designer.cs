@@ -53,28 +53,31 @@ namespace DevTalkMobile.Droid
 			public const int chat = 2130837505;
 			
 			// aapt resource value: 0x7f020002
-			public const int home = 2130837506;
+			public const int devtalksplashscreen = 2130837506;
 			
 			// aapt resource value: 0x7f020003
-			public const int ic_pause = 2130837507;
+			public const int home = 2130837507;
 			
 			// aapt resource value: 0x7f020004
-			public const int ic_play = 2130837508;
+			public const int ic_pause = 2130837508;
 			
 			// aapt resource value: 0x7f020005
-			public const int ic_share = 2130837509;
+			public const int ic_play = 2130837509;
 			
 			// aapt resource value: 0x7f020006
-			public const int ic_stop = 2130837510;
+			public const int ic_share = 2130837510;
 			
 			// aapt resource value: 0x7f020007
-			public const int icon = 2130837511;
+			public const int ic_stop = 2130837511;
 			
 			// aapt resource value: 0x7f020008
-			public const int podcast = 2130837512;
+			public const int icon = 2130837512;
 			
 			// aapt resource value: 0x7f020009
-			public const int slideout = 2130837513;
+			public const int podcast = 2130837513;
+			
+			// aapt resource value: 0x7f02000a
+			public const int slideout = 2130837514;
 			
 			static Drawable()
 			{
@@ -89,11 +92,11 @@ namespace DevTalkMobile.Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f030001
-			public const int ApplicationName = 2130903041;
+			// aapt resource value: 0x7f040001
+			public const int ApplicationName = 2130968577;
 			
-			// aapt resource value: 0x7f030000
-			public const int Hello = 2130903040;
+			// aapt resource value: 0x7f040000
+			public const int Hello = 2130968576;
 			
 			static String()
 			{
@@ -101,6 +104,22 @@ namespace DevTalkMobile.Droid
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f030000
+			public const int Theme_Splash = 2130903040;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
 			{
 			}
 		}

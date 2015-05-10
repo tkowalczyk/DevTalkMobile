@@ -73,6 +73,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Renderers\AudioPlayerRenderer.cs" />
     <Compile Include="Services\AndroidConnection.cs" />
+    <Compile Include="SplashScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -126,6 +127,11 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_play.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_share.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\ic_stop.png" />
+    <AndroidResource Include="Resources\values\Styles.xml" />
+    <AndroidResource Include="Resources\drawable\devtalksplashscreen.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\devtalksplashscreen.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\devtalksplashscreen.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\devtalksplashscreen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
