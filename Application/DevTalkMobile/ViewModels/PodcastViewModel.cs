@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using DevTalkMobile.Helpers;
 using DevTalkMobile.Models;
 using DevTalkMobile.Services;
-using DevTalkMobile.Services.DefaultHttpClient;
+using DevTalkMobile.Services.ModernHttpClient;
 using Xamarin.Forms;
 
 namespace DevTalkMobile.ViewModels
