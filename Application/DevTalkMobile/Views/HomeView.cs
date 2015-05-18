@@ -17,8 +17,10 @@ namespace DevTalkMobile.Views
 
 			var picture = new Image () {
 				Aspect = Aspect.AspectFill,
-				Source = new FileImageSource () { File = "" }
+				HeightRequest = 150,
+				WidthRequest = 150,
 			};
+			picture.SetBinding (Image.SourceProperty, "FileImage");
 
 			var title = new Label () {
 				FontSize = 25, 
@@ -30,7 +32,7 @@ namespace DevTalkMobile.Views
 			var category = new Label ();
 			category.SetBinding(Label.TextProperty, "Category");
 
-			var scovilleLabel = new Label () {
+			var dateLabel = new Label () {
 				Text = "Date:", 
 				FontSize = 15, 
 				TextColor = Color.FromHex ("#B7A19B"),
@@ -50,21 +52,30 @@ namespace DevTalkMobile.Views
 				Children = {
 					title,
 					category,
-					scovilleLabel,
+					dateLabel,
 					date,
 				}
 			};
 
+			var buttonPlay = new Button () {
+				Text = "Play",
+				BackgroundColor = Color.FromHex ("#FF6600"),
+				WidthRequest = 150,
+			};
+
+			var centerX = Constraint.RelativeToParent(parent => (parent.Width - picture.Width) / 2);
+			var centerY = Constraint.RelativeToParent(parent => (parent.Height - picture.Height) / 2.9);
+
 			layout.Children.Add (
 				picture,
-				Constraint.Constant (0),
-				Constraint.Constant (0),
-				Constraint.RelativeToParent ((parent) => {
-					return parent.Width;
-				}),
-				Constraint.RelativeToParent ((parent) => {
-					return parent.Height * .5;
-				})
+				centerX,
+				centerY
+			);
+
+			layout.Children.Add (
+				buttonPlay,
+				Constraint.RelativeToParent(parent => (parent.Width - buttonPlay.Width) / 2),
+				Constraint.RelativeToParent(parent => (buttonPlay.Height))
 			);
 
 			layout.Children.Add (

@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using DevTalkMobile.Models;
 using DevTalkMobile.Services;
+using DevTalkMobile.Helpers;
+
 using ModernHttpClient;
 
 namespace DevTalkMobile.Services.ModernHttpClient
@@ -20,7 +22,9 @@ namespace DevTalkMobile.Services.ModernHttpClient
 
 		public async Task<List<FeedItem>> GetAll(string rss)
 		{
-			var httpClient = new HttpClient(new NativeMessageHandler());
+			XNamespace content = "http://purl.org/rss/1.0/modules/content/";
+
+			var httpClient = new HttpClient (new NativeMessageHandler ());
 
 			var responseString = await httpClient.GetStringAsync(rss);
 
@@ -35,6 +39,7 @@ namespace DevTalkMobile.Services.ModernHttpClient
 						{
 							Title = (string)item.Element("title"),
 							Description = (string)item.Element("description"),
+							FileImage = (string)item.Element(content.GetName("encoded")).Value.GetImageFile(),
 							Link = (string)item.Element("link"),
 							PublishDate = (string)item.Element("pubDate"),
 							Category = (string)item.Element("category"),

@@ -51,6 +51,13 @@ namespace DevTalkMobile.ViewModels
 			set { podcastDate = value; OnPropertyChanged("PodcastDate"); }
 		}
 
+		private string fileImage;
+		public string FileImage
+		{
+			get { return fileImage; }
+			set { fileImage = value; OnPropertyChanged("FileImage"); }
+		}
+
 		private FeedItem lastFeedItem;
 		public FeedItem LastFeedItem
 		{
@@ -91,6 +98,7 @@ namespace DevTalkMobile.ViewModels
 				Title = LastFeedItem.Title;
 				PodcastDate = LastFeedItem.PublishDate;
 				Category = LastFeedItem.Category;
+				FileImage = LastFeedItem.FileImage;
 			}
 			catch (Exception ex)
 			{
