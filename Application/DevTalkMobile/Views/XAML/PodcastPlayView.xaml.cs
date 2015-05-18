@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 using DevTalkMobile.Models;
+using DevTalkMobile.Services;
 
 namespace DevTalkMobile.Views.XAML
 {
@@ -24,8 +25,8 @@ namespace DevTalkMobile.Views.XAML
 				Text = "Share",
 				Command = new Command(() =>
 					{
-//						DependencyService.Get<IShare>()
-//								.ShareText("Listening to @devtalkpl's " + item.Title + " " + item.Link);
+						DependencyService.Get<IShare>()
+								.ShareText("Listening to @devtalkpl's " + item.Title + " " + item.Link);
 					})
 			};
 

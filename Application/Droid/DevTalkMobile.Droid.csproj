@@ -83,6 +83,7 @@
     <Compile Include="Renderers\AudioPlayerRenderer.cs" />
     <Compile Include="Services\AndroidConnection.cs" />
     <Compile Include="SplashScreen.cs" />
+    <Compile Include="Services\Share.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />

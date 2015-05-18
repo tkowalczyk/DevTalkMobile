@@ -6,6 +6,8 @@ namespace DevTalkMobile.Models
 	public class FeedItem : BaseChangedModel
 	{
 		private const int MAX_TITLE_LENGTH = 35;
+		private const int MAX_DESC_LENGTH = 65;
+
 		public FeedItem ()
 		{
 		}
@@ -21,7 +23,19 @@ namespace DevTalkMobile.Models
 					title = value;
 			}
 		}
-		public string Description { get; set; }
+
+		private string description;
+		public string Description 
+		{ 
+			get { return description;}
+			set {
+				if (!string.IsNullOrWhiteSpace(value) && value.Length > MAX_DESC_LENGTH)
+					description = value.Substring (0, MAX_DESC_LENGTH) + "...";
+				else
+					description = value;
+			}
+		}
+
 		public string Link { get; set; }
 
 		private string publishDate;
