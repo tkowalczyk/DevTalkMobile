@@ -2,6 +2,7 @@
 using DevTalkMobile.Helpers;
 using DevTalkMobile.Services;
 using DevTalkMobile.ViewModels;
+using DevTalkMobile.Views.XAML;
 using Xamarin.Forms;
 
 namespace DevTalkMobile.Views
@@ -13,10 +14,20 @@ namespace DevTalkMobile.Views
 		{
 			this.Title = "DevTalk";
 
-			var layout = new RelativeLayout ();
+			var buttonPlay = new Button () {
+				Text = "Play",
+				BackgroundColor = Color.FromHex ("#FF6600"),
+				WidthRequest = 150
+			};
+			buttonPlay.SetBinding(Button.IsVisibleProperty, "IsNotBusy");
+
+			buttonPlay.Clicked += async (sender, args) =>
+			{
+				this.Navigation.PushAsync(new PodcastPlayView(ViewModel.LastFeedItem));
+			};
 
 			var picture = new Image () {
-				Aspect = Aspect.AspectFill,
+				Aspect = Aspect.AspectFit,
 				HeightRequest = 150,
 				WidthRequest = 150,
 			};
@@ -38,6 +49,7 @@ namespace DevTalkMobile.Views
 				TextColor = Color.FromHex ("#B7A19B"),
 				FontFamily = Device.OnPlatform ("HelveticaNeue-CondensedBlack", "sans-serif-condensed", "")
 			};
+			dateLabel.SetBinding(Label.IsVisibleProperty, "IsNotBusy");
 
 			var date = new Label () {
 				FontSize = 20, 
@@ -57,42 +69,49 @@ namespace DevTalkMobile.Views
 				}
 			};
 
-			var buttonPlay = new Button () {
-				Text = "Play",
-				BackgroundColor = Color.FromHex ("#FF6600"),
-				WidthRequest = 150,
+			#region MainGrid
+			Grid mainGrid = new Grid
+			{
+				VerticalOptions = LayoutOptions.FillAndExpand,
+				RowDefinitions = 
+				{
+					new RowDefinition { Height = GridLength.Auto},
+					new RowDefinition { Height = GridLength.Auto},
+					new RowDefinition { Height = new GridLength(10, GridUnitType.Star)}
+				},
+				ColumnDefinitions = 
+				{
+					new ColumnDefinition { Width = GridLength.Auto}
+				}
 			};
 
-			var centerX = Constraint.RelativeToParent(parent => (parent.Width - picture.Width) / 2);
-			var centerY = Constraint.RelativeToParent(parent => (parent.Height - picture.Height) / 2.9);
+			mainGrid.Children.Add(buttonPlay, 0, 0);
+			mainGrid.Children.Add(picture, 0, 1);
+			mainGrid.Children.Add(details, 0, 2);
+			#endregion
 
-			layout.Children.Add (
-				picture,
-				centerX,
-				centerY
-			);
+			#region ActivityIndicator
+			var activity = new ActivityIndicator
+			{
+				HorizontalOptions = LayoutOptions.Center,
+				VerticalOptions = LayoutOptions.Center,
+				IsEnabled = true
+			};
 
-			layout.Children.Add (
-				buttonPlay,
-				Constraint.RelativeToParent(parent => (parent.Width - buttonPlay.Width) / 2),
-				Constraint.RelativeToParent(parent => (buttonPlay.Height))
-			);
+			activity.SetBinding(ActivityIndicator.IsVisibleProperty, "IsBusy");
+			activity.SetBinding(ActivityIndicator.IsRunningProperty, "IsBusy");
+			#endregion
 
-			layout.Children.Add (
-				details,
-				Constraint.Constant (0),
-				Constraint.RelativeToParent ((parent) => {
-					return parent.Height * .5;
-				}),
-				Constraint.RelativeToParent ((parent) => {
-					return parent.Width;
-				}),
-				Constraint.RelativeToParent ((parent) => {
-					return parent.Height;
-				})
-			);
+			var overlay = new AbsoluteLayout();
 
-			this.Content = layout;
+			AbsoluteLayout.SetLayoutFlags(mainGrid, AbsoluteLayoutFlags.PositionProportional);
+			AbsoluteLayout.SetLayoutBounds(mainGrid, new Rectangle(0.5, 0.5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
+			AbsoluteLayout.SetLayoutFlags(activity, AbsoluteLayoutFlags.PositionProportional);
+			AbsoluteLayout.SetLayoutBounds(activity, new Rectangle(0.5, 0.5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
+			overlay.Children.Add(mainGrid);
+			overlay.Children.Add(activity);
+
+			this.Content = overlay;
 
 			// Accomodate iPhone status bar.
 			this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);

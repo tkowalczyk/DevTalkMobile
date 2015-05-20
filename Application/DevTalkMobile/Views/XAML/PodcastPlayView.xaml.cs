@@ -16,7 +16,7 @@ namespace DevTalkMobile.Views.XAML
 			BindingContext = item;
 			webView.Source = new HtmlWebViewSource
 			{
-				Html = item.Description
+				Html = item.DescriptionLongHtml
 			};
 
 			var share = new ToolbarItem

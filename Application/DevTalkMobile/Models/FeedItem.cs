@@ -24,6 +24,8 @@ namespace DevTalkMobile.Models
 			}
 		}
 
+		public string DescriptionLongHtml { get; set; }
+
 		private string description;
 		public string Description 
 		{ 

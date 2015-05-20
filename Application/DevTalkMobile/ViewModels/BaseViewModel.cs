@@ -58,6 +58,17 @@ namespace DevTalkMobile.ViewModels
 			set { SetProperty(ref isBusy, value, IsBusyPropertyName); }
 		}
 
+		private bool isNotBusy;
+		/// <summary>
+		/// Gets or sets if the view is busy.
+		/// </summary>
+		public const string IsNotBusyPropertyName = "IsNotBusy";
+		public bool IsNotBusy
+		{
+			get { return isNotBusy; }
+			set { SetProperty(ref isNotBusy, value, IsNotBusyPropertyName); }
+		}
+
 		private bool canLoadMore = true;
 		/// <summary>
 		/// Gets or sets if we can load more.

@@ -39,6 +39,7 @@ namespace DevTalkMobile.Services.ModernHttpClient
 						{
 							Title = (string)item.Element("title"),
 							Description = (string)item.Element("description"),
+							DescriptionLongHtml = (string)item.Element("description"),
 							FileImage = (string)item.Element(content.GetName("encoded")).Value.GetImageFile(),
 							Link = (string)item.Element("link"),
 							PublishDate = (string)item.Element("pubDate"),

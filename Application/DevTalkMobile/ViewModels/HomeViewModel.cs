@@ -81,6 +81,7 @@ namespace DevTalkMobile.ViewModels
 				return;
 
 			IsBusy = true;
+			IsNotBusy = false;
 
 			try
 			{
@@ -107,6 +108,7 @@ namespace DevTalkMobile.ViewModels
 			}
 
 			IsBusy = false;
+			IsNotBusy = true;
 		}
 		#endregion
 	}
