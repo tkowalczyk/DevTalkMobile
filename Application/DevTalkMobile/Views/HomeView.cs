@@ -102,6 +102,26 @@ namespace DevTalkMobile.Views
 			activity.SetBinding(ActivityIndicator.IsRunningProperty, "IsBusy");
 			#endregion
 
+			#region Platform Specific Code
+			Device.OnPlatform (
+				iOS: () => {
+					buttonPlay.TextColor = Color.FromHex("#ffffff");
+					buttonPlay.FontFamily = "HelveticaNeue-Thin";
+					title.FontFamily = "HelveticaNeue-Thin";
+					category.FontFamily = "HelveticaNeue-Thin";
+					date.FontFamily = "HelveticaNeue-Thin";
+					dateLabel.FontFamily = "HelveticaNeue-Thin";
+				},
+				Android: () => {
+					buttonPlay.FontFamily = "sans-serif-condensed";
+					title.FontFamily = "sans-serif-condensed";
+					category.FontFamily = "sans-serif-condensed";
+					date.FontFamily = "sans-serif-condensed";
+					dateLabel.FontFamily = "sans-serif-condensed";
+				}
+			);
+			#endregion
+
 			var overlay = new AbsoluteLayout();
 
 			AbsoluteLayout.SetLayoutFlags(mainGrid, AbsoluteLayoutFlags.PositionProportional);

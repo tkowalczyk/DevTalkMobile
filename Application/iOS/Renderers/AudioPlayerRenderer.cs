@@ -2,11 +2,11 @@
 using System.Timers;
 using AVFoundation;
 using CoreMedia;
-using DevTalkMobile.CustomControls;
 using Foundation;
 using Hanselman.iOS.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
+using DevTalkMobile.CustomControls;
 
 [assembly: ExportCell(typeof(AudioPlayer), typeof(AudioPlayerRenderer))]
 namespace Hanselman.iOS.Renderers

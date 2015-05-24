@@ -82,9 +82,25 @@ namespace DevTalkMobile.Views
 			};
 			#endregion
 
+			#region Platform Specific Code
+			Device.OnPlatform (
+				iOS: () => {
+					rssButton.TextColor = Color.FromHex("#ffffff");
+					rssButton.FontFamily = "HelveticaNeue-Thin";
+					emailButton.TextColor = Color.FromHex("#ffffff");
+					emailButton.FontFamily = "HelveticaNeue-Thin";
+					facebookButton.TextColor = Color.FromHex("#ffffff");
+					facebookButton.FontFamily = "HelveticaNeue-Thin";
+					twitterButton.TextColor = Color.FromHex("#ffffff");
+					twitterButton.FontFamily = "HelveticaNeue-Thin";
+					itunesButton.TextColor = Color.FromHex("#ffffff");
+					itunesButton.FontFamily = "HelveticaNeue-Thin";
+				}
+			);
+			#endregion
+
 			this.Content = new StackLayout { 
-				HorizontalOptions = LayoutOptions.Center,
-				VerticalOptions = LayoutOptions.Center,
+				VerticalOptions = LayoutOptions.CenterAndExpand,
 				Spacing = 5,
 				Children = {
 					rssButton,
@@ -94,6 +110,9 @@ namespace DevTalkMobile.Views
 					itunesButton,
 				}
 			};
+
+			// Accomodate iPhone status bar.
+			this.Padding = new Thickness(30, Device.OnPlatform(20, 0, 0), 30, 5);
 		}
 	}
 }
