@@ -123,6 +123,10 @@
       <Project>{1C3450C3-4796-4B7D-B645-47090C49A197}</Project>
       <Name>DevTalkMobile.Droid</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DevTalkMobile\DevTalkMobile.csproj">
+      <Project>{CFE13D83-3C4F-454F-9C21-4A97727D6B90}</Project>
+      <Name>DevTalkMobile</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Icon-60%403x.png" />
@@ -159,6 +163,19 @@
     <BundleResource Include="Resources\Icon-Small-40%402x.png" />
     <BundleResource Include="ITunesArtwork.png" />
     <BundleResource Include="ITunesArtwork%402x.png" />
+    <BundleResource Include="Resources\social.png" />
+    <BundleResource Include="Resources\social%402x.png" />
+    <BundleResource Include="Resources\rss.png" />
+    <BundleResource Include="Resources\rss%402x.png" />
+    <BundleResource Include="Resources\Icon-60%402x.png" />
+    <BundleResource Include="Resources\fb.png" />
+    <BundleResource Include="Resources\fb%402x.png" />
+    <BundleResource Include="Resources\itunes.png" />
+    <BundleResource Include="Resources\itunes%402x.png" />
+    <BundleResource Include="Resources\newsletter.png" />
+    <BundleResource Include="Resources\newsletter%402x.png" />
+    <BundleResource Include="Resources\twitter.png" />
+    <BundleResource Include="Resources\twitter%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
