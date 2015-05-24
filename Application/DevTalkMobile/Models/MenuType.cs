@@ -7,6 +7,7 @@ namespace DevTalkMobile.Models
 		Home,
 		Podcast,
 		Chat,
-		About
+		About,
+		Social
 	}
 }

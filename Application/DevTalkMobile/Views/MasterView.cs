@@ -28,8 +28,9 @@ namespace DevTalkMobile.Views
 
 		#region Menu
 		private HomeView home;
-		private AboutView about;
 		private PodcastView podcast;
+		private AboutView about;
+		private SocialView social;
 		#endregion
 
 		#region Ctor
@@ -72,17 +73,23 @@ namespace DevTalkMobile.Views
 
 						PageSelection = home;
 						break;
+					case MenuType.Podcast:
+						if (podcast == null)
+							podcast = new PodcastView();
+
+						PageSelection = podcast;
+						break;
 					case MenuType.About:
 						if (about == null)
 							about = new AboutView();
 
 						PageSelection = about;
 						break;
-					case MenuType.Podcast:
-						if (podcast == null)
-							podcast = new PodcastView();
+					case MenuType.Social:
+						if (social == null)
+							social = new SocialView();
 
-						PageSelection = podcast;
+						PageSelection = social;
 						break;
 				}
 			};

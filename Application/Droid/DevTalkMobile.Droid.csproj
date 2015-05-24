@@ -143,6 +143,30 @@
     <AndroidResource Include="Resources\drawable-hdpi\devtalksplashscreen.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\devtalksplashscreen.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\devtalksplashscreen.png" />
+    <AndroidResource Include="Resources\drawable\social.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\social.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\social.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\social.png" />
+    <AndroidResource Include="Resources\drawable\rss.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\rss.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\rss.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\rss.png" />
+    <AndroidResource Include="Resources\drawable\fb.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\fb.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\fb.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\fb.png" />
+    <AndroidResource Include="Resources\drawable\itunes.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\itunes.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\itunes.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\itunes.png" />
+    <AndroidResource Include="Resources\drawable\twitter.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\twitter.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\twitter.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\twitter.png" />
+    <AndroidResource Include="Resources\drawable\newsletter.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\newsletter.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\newsletter.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\newsletter.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

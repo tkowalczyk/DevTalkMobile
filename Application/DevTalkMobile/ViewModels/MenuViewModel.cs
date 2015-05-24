@@ -40,6 +40,14 @@ namespace DevTalkMobile.ViewModels
 					MenuType = MenuType.About,
 					Icon = "about.png"
 				});
+
+			MenuItems.Add (new MenuItem 
+				{
+					Id = 5,
+					Title = "Social",
+					MenuType = MenuType.Social,
+					Icon = "social.png"
+				});
 		}
 		#endregion
 	}
