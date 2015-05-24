@@ -108,20 +108,20 @@
     <Reference Include="Xamarin.Forms.Platform">
       <HintPath>..\packages\Xamarin.Forms.1.4.2.6359\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
-    <Reference Include="ModernHttpClient">
-      <HintPath>..\packages\modernhttpclient.2.4.1\lib\Xamarin.iOS10\ModernHttpClient.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Insights">
       <HintPath>..\packages\Xamarin.Insights.1.10.2.110\lib\Xamarin.iOS10\Xamarin.Insights.dll</HintPath>
     </Reference>
     <Reference Include="PLCrashReporterUnifiedBinding">
       <HintPath>..\packages\Xamarin.Insights.1.10.2.110\lib\Xamarin.iOS10\PLCrashReporterUnifiedBinding.dll</HintPath>
     </Reference>
+    <Reference Include="ModernHttpClient">
+      <HintPath>..\packages\modernhttpclient.2.4.2\lib\Xamarin.iOS10\ModernHttpClient.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DevTalkMobile\DevTalkMobile.csproj">
-      <Project>{CFE13D83-3C4F-454F-9C21-4A97727D6B90}</Project>
-      <Name>DevTalkMobile</Name>
+    <ProjectReference Include="..\Droid\DevTalkMobile.Droid.csproj">
+      <Project>{1C3450C3-4796-4B7D-B645-47090C49A197}</Project>
+      <Name>DevTalkMobile.Droid</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

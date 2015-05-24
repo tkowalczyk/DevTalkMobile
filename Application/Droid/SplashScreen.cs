@@ -13,7 +13,7 @@ using Android.Content.PM;
 
 namespace DevTalkMobile.Droid
 {
-	[Activity(Label = "DevTalkMobile.Droid", MainLauncher = true, NoHistory = true, Theme = "@style/Theme.Splash", 
+	[Activity(Label = "DevTalk", MainLauncher = true, NoHistory = true, Theme = "@style/Theme.Splash", 
 		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]			
 	public class SplashScreen : Activity
 	{

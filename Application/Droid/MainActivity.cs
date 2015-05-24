@@ -11,7 +11,7 @@ using Xamarin;
 
 namespace DevTalkMobile.Droid
 {
-	[Activity (Label = "DevTalkMobile.Droid", Icon = "@drawable/icon", 
+	[Activity (Label = "DevTalk", Icon = "@drawable/icon", 
 		ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
 	{
