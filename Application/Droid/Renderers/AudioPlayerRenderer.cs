@@ -12,15 +12,17 @@ namespace HanselmanAndroid.Renderers
 	public class AudioPlayerRenderer : FrameRenderer
 	{
 		MediaPlayer player;
-
 		Timer timer;
+
 		private AudioPlayer Player
 		{
 			get {  return  (AudioPlayer)this.Element;}
 		}
+
 		protected override void OnElementChanged(ElementChangedEventArgs<Frame> e)
 		{
 			base.OnElementChanged(e);
+
 			if (Element == null)
 				return;
 
@@ -39,7 +41,6 @@ namespace HanselmanAndroid.Renderers
 				return;
 
 			InitPlayer();
-
 		}
 
 		private void InitPlayer()
@@ -54,44 +55,47 @@ namespace HanselmanAndroid.Renderers
 		protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
 		{
 			base.OnElementPropertyChanged(sender, e);
-			if(e.PropertyName == AudioPlayer.UrlProperty.PropertyName)
-			{
-				InitPlayer();
-			}
-			else if(e.PropertyName == AudioPlayer.PlaybackStateProperty.PropertyName)
+
+//			if(e.PropertyName == AudioPlayer.UrlProperty.PropertyName)
+//			{
+//				InitPlayer();
+//			}
+			if(e.PropertyName == AudioPlayer.PlaybackStateProperty.PropertyName)
 			{
 				if (player == null)
 					return;
 
 				switch(Player.PlaybackState)
 				{
-				case 0:
-					player.Start();
-					timer.Start();
-					break;
-				case 1:
-					player.Pause();
-					timer.Stop();
-					break;
-				case 2:
-					player.Stop();
-					timer.Stop();
-					Player.Progress = 0.0M;
-					break;
+					case 0:
+					//player.SeekTo(0);
+						player.Start();
+						timer.Start();
+						break;
+					case 1:
+						player.Pause();
+						timer.Stop();
+						break;
+					case 2:
+						player.Stop();
+						timer.Stop();
+						Player.Progress = 0.0M;
+						break;
 				}
 			}
-			else if(e.PropertyName == AudioPlayer.SeekToProperty.PropertyName)
-			{
-				if (player == null)
-					return;
-
-				player.SeekTo((int)(player.Duration * Player.SeekTo));
-			}
+//			else if(e.PropertyName == AudioPlayer.SeekToProperty.PropertyName)
+//			{
+//				if (player == null)
+//					return;
+//
+//				player.SeekTo((int)(player.Duration * Player.SeekTo));
+//			}
 		}
 		void timer_Elapsed(object sender, ElapsedEventArgs e)
 		{
 			if (player == null)
 				return;
+			
 			var current = player.CurrentPosition;
 			var duration = player.Duration;
 

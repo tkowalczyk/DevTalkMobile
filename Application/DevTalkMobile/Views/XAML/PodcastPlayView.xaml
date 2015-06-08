@@ -14,7 +14,6 @@ Title ="{Binding Title}">
                             HeightRequest="1" 
                             HasShadow="False"/>
     <ProgressBar Progress="{Binding Progress}"/>
-      
       <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="10">
         <Button  x:Name="play" Image="ic_play.png" HorizontalOptions="Center"/>
         <Button  x:Name="pause" Image="ic_pause.png" HorizontalOptions="Center"/>

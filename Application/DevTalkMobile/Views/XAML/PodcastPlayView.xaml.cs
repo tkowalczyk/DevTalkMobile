@@ -14,6 +14,7 @@ namespace DevTalkMobile.Views.XAML
 			InitializeComponent ();
 
 			BindingContext = item;
+
 			webView.Source = new HtmlWebViewSource
 			{
 				Html = item.DescriptionLongHtml
@@ -36,6 +37,7 @@ namespace DevTalkMobile.Views.XAML
 			pause.Clicked += (sender, args) => player.PlaybackState = 1;
 			stop.Clicked += (sender, args) => player.PlaybackState = 2;
 
+			#region Platform Specific Code
 			if(Device.OS == TargetPlatform.Android || Device.OS == TargetPlatform.WinPhone)
 			{
 				play.Text = "Play";
@@ -52,6 +54,24 @@ namespace DevTalkMobile.Views.XAML
 				this.pause.TextColor = Color.Black;
 				this.stop.TextColor = Color.Black;
 			}
+
+			Device.OnPlatform (
+				iOS: () => {
+					title.FontFamily = "HelveticaNeue-Thin";
+					date.FontFamily = "HelveticaNeue-Thin";
+					play.FontFamily = "HelveticaNeue-Thin";
+					pause.FontFamily = "HelveticaNeue-Thin";
+					stop.FontFamily = "HelveticaNeue-Thin";
+				},
+				Android: () => {
+					title.FontFamily = "sans-serif-condensed";
+					date.FontFamily = "sans-serif-condensed";
+					play.FontFamily = "sans-serif-condensed";
+					pause.FontFamily = "sans-serif-condensed";
+					stop.FontFamily = "sans-serif-condensed";
+				}
+			);
+			#endregion
 		}
 	}
 }
