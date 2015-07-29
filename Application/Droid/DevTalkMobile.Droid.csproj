@@ -169,6 +169,11 @@
     <AndroidResource Include="Resources\drawable-hdpi\newsletter.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\newsletter.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\newsletter.png" />
+    <AndroidResource Include="Resources\drawable\partners.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\partners.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\partners.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\partners.png" />
+    <AndroidResource Include="Resources\drawable\empty_image.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

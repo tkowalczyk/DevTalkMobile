@@ -31,6 +31,7 @@ namespace DevTalkMobile.Views
 		private PodcastView podcast;
 		private AboutView about;
 		private SocialView social;
+		private PartnersView partners;
 		#endregion
 
 		#region Ctor
@@ -91,7 +92,13 @@ namespace DevTalkMobile.Views
 
 						PageSelection = social;
 						break;
-				}
+					case MenuType.Partners:
+						if (partners == null)
+							partners = new PartnersView();
+
+						PageSelection = partners;
+						break;
+					}
 			};
 
 			listView.SelectedItem = viewModel.MenuItems[0];

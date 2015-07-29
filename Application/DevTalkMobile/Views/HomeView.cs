@@ -23,7 +23,7 @@ namespace DevTalkMobile.Views
 
 			buttonPlay.Clicked += async (sender, args) =>
 			{
-				this.Navigation.PushAsync(new PodcastPlayView(ViewModel.LastFeedItem));
+				await this.Navigation.PushAsync(new PodcastPlayView(ViewModel.LastFeedItem));
 			};
 
 			var picture = new Image () {
@@ -32,6 +32,13 @@ namespace DevTalkMobile.Views
 				WidthRequest = 150,
 			};
 			picture.SetBinding (Image.SourceProperty, "FileImage");
+
+			var tapGestureRecognizer = new TapGestureRecognizer();
+			tapGestureRecognizer.Tapped += async (s, e) => 
+			{
+				await this.Navigation.PushAsync(new PodcastPlayView(ViewModel.LastFeedItem));
+			};
+			picture.GestureRecognizers.Add(tapGestureRecognizer);
 
 			var title = new Label () {
 				FontSize = 25, 

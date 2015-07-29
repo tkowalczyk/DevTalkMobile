@@ -176,6 +176,10 @@
     <BundleResource Include="Resources\newsletter%402x.png" />
     <BundleResource Include="Resources\twitter.png" />
     <BundleResource Include="Resources\twitter%402x.png" />
+    <BundleResource Include="Resources\partners.png" />
+    <BundleResource Include="Resources\partners%402.png" />
+    <BundleResource Include="Resources\icon.png" />
+    <BundleResource Include="Resources\empty_image.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

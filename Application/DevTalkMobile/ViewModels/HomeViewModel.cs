@@ -99,7 +99,15 @@ namespace DevTalkMobile.ViewModels
 				Title = LastFeedItem.Title;
 				PodcastDate = LastFeedItem.PublishDate;
 				Category = LastFeedItem.Category;
-				FileImage = LastFeedItem.FileImage;
+
+				if(LastFeedItem.FileImage != null)
+				{
+					FileImage = LastFeedItem.FileImage;
+				}
+				else
+				{
+					FileImage = "empty_image.png";
+				}
 			}
 			catch (Exception ex)
 			{

@@ -35,7 +35,7 @@ namespace DevTalkMobile.ViewModels
 
 			MenuItems.Add(new MenuItem
 				{
-					Id = 4,
+					Id = 2,
 					Title = "About",
 					MenuType = MenuType.About,
 					Icon = "about.png"
@@ -43,10 +43,18 @@ namespace DevTalkMobile.ViewModels
 
 			MenuItems.Add (new MenuItem 
 				{
-					Id = 5,
+					Id = 3,
 					Title = "Social",
 					MenuType = MenuType.Social,
 					Icon = "social.png"
+				});
+
+			MenuItems.Add (new MenuItem 
+				{
+					Id = 4,
+					Title = "Partners",
+					MenuType = MenuType.Partners,
+					Icon = "partners.png"
 				});
 		}
 		#endregion
