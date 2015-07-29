@@ -23,6 +23,7 @@ namespace DevTalkMobile.Services.ModernHttpClient
 		public async Task<List<FeedItem>> GetAll(string rss)
 		{
 			XNamespace content = "http://purl.org/rss/1.0/modules/content/";
+			XNamespace feedburner = "http://rssnamespace.org/feedburner/ext/1.0";
 
 			var httpClient = new HttpClient (new NativeMessageHandler ());
 
@@ -45,6 +46,7 @@ namespace DevTalkMobile.Services.ModernHttpClient
 							PublishDate = (string)item.Element("pubDate"),
 							Category = (string)item.Element("category"),
 							Mp3Url = (string)enclosure.Attribute("url"),
+							BlogPost = (string)item.Element(feedburner.GetName("origLink")).Value,
 							Id = id++
 						}).ToList();
 				});

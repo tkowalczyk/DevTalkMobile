@@ -64,5 +64,6 @@ namespace DevTalkMobile.Models
 		public string Mp3Url { get; set; }
 		public int Id { get; set; }
 		public string FileImage { get; set; }
+		public string BlogPost { get; set; }
 	}
 }
