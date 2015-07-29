@@ -4,10 +4,10 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+
 using DevTalkMobile.Models;
 using DevTalkMobile.Services;
 using DevTalkMobile.Helpers;
-
 using ModernHttpClient;
 
 namespace DevTalkMobile.Services.ModernHttpClient
