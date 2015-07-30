@@ -72,6 +72,8 @@
     <Compile Include="ViewModels\PartnersViewModel.cs" />
     <Compile Include="Services\ModernHttpClient\ContentRepository.cs" />
     <Compile Include="Services\IContentRepository.cs" />
+    <Compile Include="Models\Partner.cs" />
+    <Compile Include="CustomControls\PartnersCell.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
@@ -109,6 +111,9 @@
     </Reference>
     <Reference Include="Xamarin.Forms.Platform">
       <HintPath>..\packages\Xamarin.Forms.1.4.4.6392\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\portable-net45+netcore45+wp8+MonoAndroid+MonoTouch\HtmlAgilityPack.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

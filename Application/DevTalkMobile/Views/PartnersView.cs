@@ -26,18 +26,25 @@ namespace DevTalkMobile.Views
 			activity.SetBinding(ActivityIndicator.IsRunningProperty, "IsBusy");
 			#endregion
 
-			var lab = new Label () 
-			{
-				Text = "Partners",
+			StackLayout layout = new StackLayout ()
+			{ 
+				HorizontalOptions = LayoutOptions.CenterAndExpand,
 			};
 
-			var layout = new StackLayout ()
-			{
-				Children = 
-				{
-					lab
-				}
-			};
+			#region Partners ListView
+			ListView listView = new ListView();
+
+			listView.HorizontalOptions = LayoutOptions.CenterAndExpand;
+			listView.ItemsSource = ViewModel.PartnersList;
+			listView.HasUnevenRows = true; // if using a custom template for each cell you might want to enable this.
+			listView.SeparatorVisibility = SeparatorVisibility.Default;
+			listView.SeparatorColor = Color.FromHex ("eeeeee");
+
+			var cell = new DataTemplate(typeof(PartnersCell));
+
+			listView.ItemTemplate = cell;
+			layout.Children.Add(listView);
+			#endregion
 
 			var overlay = new AbsoluteLayout();
 
@@ -48,10 +55,14 @@ namespace DevTalkMobile.Views
 			overlay.Children.Add(layout);
 			overlay.Children.Add(activity);
 
-			this.Content = overlay;
+			this.Content = new ScrollView () 
+			{
+				Content = overlay,
+				VerticalOptions = LayoutOptions.Start,
+			};
 
 			// Accomodate iPhone status bar.
-			this.Padding = new Thickness(30, Device.OnPlatform(20, 0, 0), 30, 5);
+			this.Padding = new Thickness(5, Device.OnPlatform(20, 0, 0), 5, 5);
 		}
 		#endregion
 
@@ -60,7 +71,7 @@ namespace DevTalkMobile.Views
 		{
 			base.OnAppearing ();
 
-			if (ViewModel == null || !ViewModel.CanLoadMore || ViewModel.IsBusy)
+			if (ViewModel == null || !ViewModel.CanLoadMore || ViewModel.IsBusy || ViewModel.PartnersList.Count > 0)
 				return;
 
 			if (this.TypeOfConnection == ConnectionType.NotReachable) 

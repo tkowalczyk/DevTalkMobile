@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using DevTalkMobile.Helpers;
 using DevTalkMobile.Services;
 using Xamarin.Forms;
+using System.Collections.ObjectModel;
 
 namespace DevTalkMobile.ViewModels
 {
@@ -21,6 +22,16 @@ namespace DevTalkMobile.ViewModels
 		#endregion
 
 		#region Properties
+		private ObservableCollection<Partner> partnersList = new ObservableCollection<Partner>();
+		public ObservableCollection<Partner> PartnersList
+		{
+			get { return partnersList; }
+			set
+			{
+				partnersList = value;
+				OnPropertyChanged("PartnersList");
+			}
+		}
 		#endregion
 
 		#region Commands
@@ -41,7 +52,16 @@ namespace DevTalkMobile.ViewModels
 
 			try
 			{
+				PartnersList.Clear();
+
 				var items = await _contentRepository.GetContent(StaticData.DevTalkWeb);
+
+				var partners = ExtensionMethods.GetPartners(items);
+
+				foreach (var item in partners)
+				{
+					PartnersList.Add(item);
+				}
 			}
 			catch (Exception ex)
 			{

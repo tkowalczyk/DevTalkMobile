@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using HtmlAgilityPack;
+using System.Diagnostics;
 
 namespace DevTalkMobile.Helpers
 {
@@ -26,6 +28,54 @@ namespace DevTalkMobile.Helpers
 			}
 
 			return images;
+		}
+
+
+		public static List<Partner> GetPartners(string htmlContent)
+		{
+			List<Partner> partnersList = new List<Partner> ();
+
+			var devTalkDocument = new HtmlDocument();
+			devTalkDocument.LoadHtml(htmlContent);
+
+			IEnumerable<HtmlNode> partnersWidget = devTalkDocument.DocumentNode.Descendants("div")
+				.Where(d => 
+					d.Attributes.Contains("class") && d.Attributes["class"].Value.Contains("textwidget")
+				)
+				.FirstOrDefault() //Find first div with textwidget class
+				.ChildNodes //Find its p elements
+				.Skip(1) //Skip the first p 
+				.Where (child =>
+					child.NodeType == HtmlNodeType.Element);
+
+			foreach (HtmlNode child in partnersWidget)
+			{
+				RemoveComments (child);
+
+				if (child.InnerHtml != string.Empty) 
+				{
+					HtmlNode imgs = child.Descendants ("img").Where (d => 
+					d.Attributes.Contains ("src")).Single ();
+
+					Partner partner = new Partner () 
+					{
+						Logo = StaticData.DevTalkWeb + imgs.Attributes["src"].Value,
+						Title = imgs.Attributes["title"].Value
+					};
+
+					partnersList.Add (partner);
+				}
+			}
+
+			return partnersList;
+		}
+
+		public static void RemoveComments(HtmlNode node)
+		{
+			foreach (var n in node.ChildNodes.ToArray())
+				RemoveComments(n);
+			if (node.NodeType == HtmlNodeType.Comment)
+				node.Remove();
 		}
 	}
 }

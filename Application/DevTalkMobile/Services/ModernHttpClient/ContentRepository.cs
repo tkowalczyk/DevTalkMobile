@@ -12,7 +12,6 @@ namespace DevTalkMobile.Services
 		{
 		}
 
-
 		#region IContentRepository implementation
 		public async Task<string> GetContent (string url)
 		{
