@@ -15,3 +15,7 @@ Repository for mobile clients for http://devtalk.pl podcast!
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/tkowalczyk/devtalkmobile/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/tkowalczyk/devtalkmobile/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
