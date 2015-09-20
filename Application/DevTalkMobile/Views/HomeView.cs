@@ -3,7 +3,7 @@
 using DevTalkMobile.Helpers;
 using DevTalkMobile.Services;
 using DevTalkMobile.ViewModels;
-using DevTalkMobile.Views.XAML;
+using DevTalkMobile.Views;
 using Xamarin.Forms;
 
 namespace DevTalkMobile.Views

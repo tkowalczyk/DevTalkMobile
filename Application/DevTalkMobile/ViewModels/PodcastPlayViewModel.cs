@@ -3,7 +3,7 @@
 using DevTalkMobile.ViewModels;
 using Xamarin.Forms;
 
-namespace DevTalkMobile
+namespace DevTalkMobile.ViewModels
 {
 	public class PodcastPlayViewModel : BaseViewModel
 	{
