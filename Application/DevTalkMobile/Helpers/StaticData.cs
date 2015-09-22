@@ -12,5 +12,9 @@ namespace DevTalkMobile.Helpers
 		public static string ConnectionHeader = "No Internet access";
 		public static string ConnectionMessage = "Application will work offline.";
 		public static string ConnectionButton = "OK";
+
+		public static string PartnersNullHeader = "No Partners";
+		public static string PartnersNullMessage = "If you want to support us, please visit http://devtalk.pl/wspolpraca/";
+		public static string PartnersNullButton = "OK";
 	}
 }

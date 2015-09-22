@@ -71,7 +71,7 @@ namespace DevTalkMobile.Views
 		{
 			base.OnAppearing ();
 
-			if (ViewModel == null || !ViewModel.CanLoadMore || ViewModel.IsBusy || ViewModel.PartnersList.Count > 0)
+			if (ViewModel == null || !ViewModel.CanLoadMore || ViewModel.IsBusy)
 				return;
 
 			if (this.TypeOfConnection == ConnectionType.NotReachable) 
@@ -85,6 +85,15 @@ namespace DevTalkMobile.Views
 			else 
 			{
 				ViewModel.LoadContentCommand.Execute(null);
+
+				if (ViewModel.PartnersList.Count <= 0) 
+				{
+					DisplayAlert(
+						StaticData.PartnersNullHeader,
+						StaticData.PartnersNullMessage,
+						StaticData.PartnersNullButton
+					);
+				}
 			}
 		}
 		#endregion
