@@ -2,7 +2,7 @@
 
 namespace DevTalkMobile.Services
 {
-	public interface IAudioOperations
+	public interface ISoundService
 	{
 		void SetSource(string pathToFile);
 		void Play();

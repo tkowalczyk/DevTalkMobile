@@ -1,17 +1,24 @@
 ﻿using System;
+using Xamarin.Forms;
 
 using DevTalkMobile.ViewModels;
-using Xamarin.Forms;
 using DevTalkMobile.Models;
 using DevTalkMobile.Services;
+using DevTalkMobile.Helpers;
 
 namespace DevTalkMobile.Views
 {
 	public class PodcastPlayView : BaseView<PodcastPlayViewModel>
 	{
-		public PodcastPlayView (FeedItem item)
+		#region Fields
+		private FeedItem _selectedFeedItem;
+		#endregion
+
+		public PodcastPlayView (FeedItem selectedFeedItem)
 		{
-			//SetBinding(Page.TitleProperty, new Binding(item.Title));
+			SetBinding(Page.TitleProperty, new Binding(PodcastPlayViewModel.PodcastTitlePropertyName));
+
+			this._selectedFeedItem = selectedFeedItem;
 
 			#region Toolbar Share
 			var share = new ToolbarItem
@@ -21,7 +28,7 @@ namespace DevTalkMobile.Views
 				Command = new Command(() =>
 					{
 						DependencyService.Get<IShare>()
-							.ShareText("Listening to @devtalkpl's " + item.Title + " " + item.Link);
+							.ShareText("Listening to @devtalkpl's " + _selectedFeedItem.Title + " " + _selectedFeedItem.Link);
 					})
 			};
 
@@ -32,20 +39,18 @@ namespace DevTalkMobile.Views
 			{
 				
 			};
+			title.SetBinding(Label.TextProperty, "PodcastTitle");
 
 			Label date = new Label () 
 			{
 				
 			};
+			date.SetBinding(Label.TextProperty, "PodcastDate");
 
 			ProgressBar progress = new ProgressBar () 
 			{
 				
 			};
-
-			DependencyService.Get<IAudioOperations> ().SetSource(
-				item.Mp3Url
-			);
 
 			#region Buttons
 			Button playButton = new Button ()
@@ -56,7 +61,7 @@ namespace DevTalkMobile.Views
 
 			playButton.Clicked += (sender, e) => 
 			{
-				DependencyService.Get<IAudioOperations> ().Play();
+				ViewModel.PlayCommand.Execute(null);
 			};
 
 			Button stopButton = new Button () 
@@ -67,7 +72,7 @@ namespace DevTalkMobile.Views
 
 			stopButton.Clicked += (sender, e) => 
 			{
-				DependencyService.Get<IAudioOperations> ().Stop();
+				ViewModel.StopCommand.Execute(null);
 			};
 
 			Button pauseButton = new Button () 
@@ -78,18 +83,16 @@ namespace DevTalkMobile.Views
 
 			pauseButton.Clicked += (sender, e) => 
 			{
-				DependencyService.Get<IAudioOperations> ().Pause();
+				ViewModel.PauseCommand.Execute(null);
 			};
 			#endregion
 
 			WebView webPage = new WebView () 
 			{
-				Source = new UrlWebViewSource
-				{
-					Url = item.BlogPost,
-				},
+				Source = new UrlWebViewSource{},
 				VerticalOptions = LayoutOptions.FillAndExpand,
 			};
+			webPage.SetBinding (WebView.SourceProperty, "PodcastWebPage");
 
 			StackLayout buttonsLayout = new StackLayout () 
 			{
@@ -159,5 +162,29 @@ namespace DevTalkMobile.Views
 
 			this.Content = layout;
 		}
+
+		#region Overrides
+		protected override void OnAppearing()
+		{
+			base.OnAppearing ();
+
+			if (ViewModel == null || !ViewModel.CanLoadMore || ViewModel.IsBusy)
+				return;
+
+			if (this.TypeOfConnection == ConnectionType.NotReachable) 
+			{
+				DisplayAlert(
+					StaticData.ConnectionHeader,
+					StaticData.ConnectionMessage,
+					StaticData.ConnectionButton
+				);
+			}
+			else 
+			{
+				if(_selectedFeedItem != null)
+					ViewModel.GetSelectedItemInfoCommand.Execute(_selectedFeedItem);
+			}
+		}
+		#endregion
 	}
 }

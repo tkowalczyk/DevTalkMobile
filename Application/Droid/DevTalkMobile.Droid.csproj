@@ -90,7 +90,7 @@
     <Compile Include="Services\AndroidConnection.cs" />
     <Compile Include="SplashScreen.cs" />
     <Compile Include="Services\Share.cs" />
-    <Compile Include="Services\AudioOperations.cs" />
+    <Compile Include="Services\SoundService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />

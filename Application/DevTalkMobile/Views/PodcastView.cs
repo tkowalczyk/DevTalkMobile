@@ -39,7 +39,7 @@ namespace DevTalkMobile.Views
 				Placeholder = "Search by podcast name",
 			};
 
-			searchBar.TextChanged += async (sender, e) =>
+			searchBar.TextChanged += (sender, e) =>
 			{
 				if (this.TypeOfConnection == ConnectionType.NotReachable) 
 				{
