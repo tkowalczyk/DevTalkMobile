@@ -89,14 +89,17 @@ namespace DevTalkMobile.ViewModels
 		#region Private Methods
 		private async Task ExecutePlayCommand()
 		{
+			_soundService.Play ();
 		}
 
 		private async Task ExecutePauseCommand()
 		{
+			_soundService.Pause ();
 		}
 
 		private async Task ExecuteStopCommand()
 		{
+			_soundService.Stop ();
 		}
 
 		private async Task ExecuteGetSelectedItemInfoCommand(FeedItem item)
