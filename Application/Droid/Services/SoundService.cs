@@ -6,6 +6,7 @@ using DevTalkMobile.Droid;
 using Android.Media;
 using Android.Content;
 using Android.OS;
+using System.Threading.Tasks;
 
 [assembly: Xamarin.Forms.Dependency (typeof (SoundService))]
 namespace DevTalkMobile.Droid
@@ -50,56 +51,84 @@ namespace DevTalkMobile.Droid
 			
 		}
 
-		public void Play ()
+		public async Task<bool> Play ()
 		{
+			bool ret = false;
+
 			if (paused && player != null) {
 				paused = false;
 				//We are simply paused so just start again
 				player.Start();
-				return;
+				ret = false;
 			}
 
 			if (player == null) {
 				IntializePlayer();
+
+				ret = false;
 			}
 
 			if (player.IsPlaying)
-				return;
+				ret = true;
 
 			try {
-				player.SetDataSourceAsync(global::Android.App.Application.Context, Android.Net.Uri.Parse(Mp3));
+				await player.SetDataSourceAsync(global::Android.App.Application.Context, Android.Net.Uri.Parse(Mp3));
 
 				player.PrepareAsync();
+
+				ret = true;
 			}
 			catch (Exception ex) {
-				//unable to start playback log error
 				Console.WriteLine("Unable to start playback: " + ex);
 			}
+
+			return ret;
 		}
 
-		public void Stop ()
+		public async Task<bool> Stop ()
 		{
-			if (player == null)
-				return;
+			bool ret = false;
 
-			if(player.IsPlaying)
-				player.Stop();
+			if (player == null)
+				ret = false;
+
+			if (player.IsPlaying) 
+			{
+				player.Stop ();
+				ret = true;
+			}
 
 			player.Reset();
 			paused = false;
+
+			return ret;
 		}
 
-		public void Pause ()
+		public async Task<bool> Pause ()
 		{
-			if (player == null)
-				return;
+			bool ret = false;
 
-			if(player.IsPlaying)
-				player.Pause();
+			if (player == null)
+				ret  = false;
+
+			if (player.IsPlaying) 
+			{
+				player.Pause ();
+				ret = true;
+			}
 
 			paused = true;
+
+			return ret;
 		}
 
+		public async Task<string> GetTrackDuration(string pathToFile)
+		{
+			if (player != null)
+				return player.Duration.ToString ();
+			else
+				return null;
+		}
 		#endregion
 	}
 }

@@ -21,8 +21,7 @@ namespace DevTalkMobile.Views
 			};
 			rssButton.Clicked += (sender, e) => 
 			{
-				DependencyService.Get<IShare>()
-					.LaunchBrowser("http://devtalk.pl/feed");
+				Device.OpenUri(new Uri("http://devtalk.pl/feed"));
 			};
 			#endregion
 
@@ -35,8 +34,7 @@ namespace DevTalkMobile.Views
 			};
 			emailButton.Clicked += (sender, e) => 
 			{
-				DependencyService.Get<IShare>()
-					.LaunchBrowser("http://eepurl.com/bem-oP");
+				Device.OpenUri(new Uri("http://eepurl.com/bem-oP"));
 			};
 			#endregion
 
@@ -49,8 +47,7 @@ namespace DevTalkMobile.Views
 			};
 			facebookButton.Clicked += (sender, e) => 
 			{
-				DependencyService.Get<IShare>()
-					.LaunchBrowser("https://www.facebook.com/devtalkpl");
+				Device.OpenUri(new Uri("https://www.facebook.com/devtalkpl"));
 			};
 			#endregion
 
@@ -63,8 +60,7 @@ namespace DevTalkMobile.Views
 			};
 			twitterButton.Clicked += (sender, e) => 
 			{
-				DependencyService.Get<IShare>()
-					.LaunchBrowser("https://twitter.com/devtalkpl");
+				Device.OpenUri(new Uri("https://twitter.com/devtalkpl"));
 			};
 			#endregion
 
@@ -77,8 +73,7 @@ namespace DevTalkMobile.Views
 			};
 			itunesButton.Clicked += (sender, e) => 
 			{
-				DependencyService.Get<IShare>()
-					.LaunchBrowser("https://itunes.apple.com/pl/podcast/devtalk/id933567686");
+				Device.OpenUri(new Uri("https://itunes.apple.com/pl/podcast/devtalk/id933567686"));
 			};
 			#endregion
 

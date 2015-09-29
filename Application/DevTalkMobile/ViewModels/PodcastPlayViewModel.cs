@@ -50,6 +50,20 @@ namespace DevTalkMobile.ViewModels
 			get { return selectedFeedItem; }
 			set { selectedFeedItem = value; OnPropertyChanged("SelectedFeedItem"); }
 		}
+
+		private double podcastCurrentLength;
+		public double PodcastCurrentLength
+		{
+			get { return podcastCurrentLength; }
+			set { podcastCurrentLength = value; OnPropertyChanged("PodcastCurrentLength"); }
+		}
+
+		private string podcastDuration;
+		public string PodcastDuration
+		{
+			get { return podcastDuration; }
+			set { podcastDuration = value; OnPropertyChanged("PodcastDuration"); }
+		}
 		#endregion
 
 		#region Commands
@@ -89,17 +103,17 @@ namespace DevTalkMobile.ViewModels
 		#region Private Methods
 		private async Task ExecutePlayCommand()
 		{
-			_soundService.Play ();
+			await _soundService.Play ();
 		}
 
 		private async Task ExecutePauseCommand()
 		{
-			_soundService.Pause ();
+			await _soundService.Pause ();
 		}
 
 		private async Task ExecuteStopCommand()
 		{
-			_soundService.Stop ();
+			await _soundService.Stop ();
 		}
 
 		private async Task ExecuteGetSelectedItemInfoCommand(FeedItem item)
@@ -107,6 +121,8 @@ namespace DevTalkMobile.ViewModels
 			PodcastTitle = item.Title;
 			PodcastWebPage = item.BlogPost;
 			PodcastDate = item.PublishDate;
+			PodcastCurrentLength = 0.5;
+			PodcastDuration = await _soundService.GetTrackDuration (item.Mp3Url);
 		}
 		#endregion
 	}

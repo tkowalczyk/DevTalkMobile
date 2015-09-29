@@ -46,7 +46,7 @@ namespace DevTalkMobile.Views
 				TextColor = Color.FromHex ("#FF6600"),
 				FontFamily = Device.OnPlatform ("HelveticaNeue-Medium", "", "")
 			};
-			title.SetBinding(Label.TextProperty, "Title");
+			title.SetBinding(Label.TextProperty, "PodcastTitle");
 
 			var category = new Label ();
 			category.SetBinding(Label.TextProperty, "Category");

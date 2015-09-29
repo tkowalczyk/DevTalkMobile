@@ -5,6 +5,8 @@ using DevTalkMobile.Helpers;
 using DevTalkMobile.Services;
 using Xamarin.Forms;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using Xamarin;
 
 namespace DevTalkMobile.ViewModels
 {
@@ -67,6 +69,12 @@ namespace DevTalkMobile.ViewModels
 			{
 				var page = new ContentPage();
 				var result = page.DisplayAlert("Error", "Unable to load partners content. " + ex.Message, "OK");
+
+				Insights.Report(ex, new Dictionary<string, string> { 
+					{"Error", "Unable to load partners content."},
+					{"Message", ex.Message},
+					{"Result", result.ToString()}
+				});
 			}
 
 			IsBusy = false;

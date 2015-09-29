@@ -51,7 +51,13 @@ namespace DevTalkMobile.Views
 			{
 				
 			};
+			progress.SetBinding (ProgressBar.ProgressProperty, "PodcastCurrentLength");
 
+			Label duration = new Label () 
+			{
+
+			};
+			duration.SetBinding(Label.TextProperty, "PodcastDuration");
 			#region Buttons
 			Button playButton = new Button ()
 			{
@@ -116,6 +122,7 @@ namespace DevTalkMobile.Views
 					title,
 					date,
 					progress,
+					duration,
 					buttonsLayout,
 					webPage
 				}

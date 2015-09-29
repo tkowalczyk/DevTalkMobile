@@ -15,16 +15,5 @@ namespace DevTalkMobile.iOS
 			var activityController = new UIActivityViewController (items, null);
 			UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewControllerAsync(activityController, true);
 		}
-
-		public void LaunchBrowser (string url)
-		{
-			if (string.IsNullOrWhiteSpace (url))
-				return;
-			try {
-				UIApplication.SharedApplication.OpenUrl (new NSUrl (url));
-			}
-			catch (Exception ex) {
-			}
-		}
 	}
 }

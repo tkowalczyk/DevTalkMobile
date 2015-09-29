@@ -30,9 +30,6 @@ namespace DevTalkMobile.Services
 
 					using (HttpContent content = response.Content) 
 					{   
-						string responseUri = response.RequestMessage
-						.RequestUri.ToString ();
-
 						html = await content
 							.ReadAsStringAsync()
 							.ConfigureAwait(false);

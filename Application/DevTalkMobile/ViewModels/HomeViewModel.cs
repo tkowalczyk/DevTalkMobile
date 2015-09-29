@@ -7,6 +7,8 @@ using DevTalkMobile.Models;
 using DevTalkMobile.Services;
 using DevTalkMobile.Services.ModernHttpClient;
 using Xamarin.Forms;
+using Xamarin;
+using System.Collections.Generic;
 
 namespace DevTalkMobile.ViewModels
 {
@@ -31,11 +33,11 @@ namespace DevTalkMobile.ViewModels
 			set { feedItems = value; OnPropertyChanged("FeedItems"); }
 		}
 
-		private string title;
-		public string Title
+		private string podcastTitle;
+		public string PodcastTitle
 		{
-			get { return title; }
-			set { title = value; OnPropertyChanged("Title"); }
+			get { return podcastTitle; }
+			set { podcastTitle = value; OnPropertyChanged("PodcastTitle"); }
 		}
 
 		private string category;
@@ -97,7 +99,7 @@ namespace DevTalkMobile.ViewModels
 
 				LastFeedItem = FeedItems[0];
 
-				Title = LastFeedItem.Title;
+				PodcastTitle = LastFeedItem.Title;
 				PodcastDate = LastFeedItem.PublishDate;
 				Category = LastFeedItem.Category;
 
@@ -114,6 +116,12 @@ namespace DevTalkMobile.ViewModels
 			{
 				var page = new ContentPage();
 				var result = page.DisplayAlert("Error", "Unable to load podcast feed. " + ex.Message, "OK");
+
+				Insights.Report(ex, new Dictionary<string, string> { 
+					{"Error", "Unable to load podcast feed."},
+					{"Message", ex.Message},
+					{"Result", result.ToString()}
+				});
 			}
 
 			IsBusy = false;

@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace DevTalkMobile.Services
 {
 	public interface ISoundService
 	{
 		void SetSource(string pathToFile);
-		void Play();
-		void Stop();
-		void Pause();
+		Task<bool> Play();
+		Task<bool> Stop();
+		Task<bool> Pause();
+		Task<string> GetTrackDuration(string pathToFile);
 	}
 }

@@ -16,19 +16,5 @@ namespace DevTalkMobile.Droid
 			intent.PutExtra (Intent.ExtraText, text);
 			Forms.Context.StartActivity (Intent.CreateChooser (intent, "Share"));
 		}
-
-		public void LaunchBrowser (string url)
-		{
-			if (string.IsNullOrWhiteSpace (url))
-				return;
-			try {
-				var intent = new Intent (Intent.ActionView);
-				intent.SetData (Android.Net.Uri.Parse (url));
-				Forms.Context.StartActivity (intent);
-
-			}
-			catch (Exception ex) {
-			}
-		}
 	}
 }
