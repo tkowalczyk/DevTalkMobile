@@ -67,7 +67,7 @@ namespace DevTalkMobile.Views
 
 			playButton.Clicked += (sender, e) => 
 			{
-				ViewModel.PlayCommand.Execute(null);
+				ViewModel.PlayCommand.Execute(_selectedFeedItem.Mp3Url);
 			};
 
 			Button stopButton = new Button () 

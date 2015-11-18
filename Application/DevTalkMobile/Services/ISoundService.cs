@@ -5,8 +5,7 @@ namespace DevTalkMobile.Services
 {
 	public interface ISoundService
 	{
-		void SetSource(string pathToFile);
-		Task<bool> Play();
+		Task<bool> Play(string pathToFile);
 		Task<bool> Stop();
 		Task<bool> Pause();
 		Task<string> GetTrackDuration(string pathToFile);

@@ -67,11 +67,11 @@ namespace DevTalkMobile.ViewModels
 		#endregion
 
 		#region Commands
-		private Command playCommand;
-		public Command PlayCommand
+		private Command<string> playCommand;
+		public Command<string> PlayCommand
 		{
-			get { return playCommand ?? (playCommand = new Command(async () => 
-				await ExecutePlayCommand())); 
+			get { return playCommand ?? (playCommand = new Command<string>(async pathToFile => 
+				await ExecutePlayCommand(pathToFile))); 
 			}
 		}
 
@@ -101,9 +101,9 @@ namespace DevTalkMobile.ViewModels
 		#endregion
 
 		#region Private Methods
-		private async Task ExecutePlayCommand()
+		private async Task ExecutePlayCommand(string pathToFile)
 		{
-			await _soundService.Play ();
+			await _soundService.Play (pathToFile);
 		}
 
 		private async Task ExecutePauseCommand()
@@ -121,7 +121,6 @@ namespace DevTalkMobile.ViewModels
 			PodcastTitle = item.Title;
 			PodcastWebPage = item.BlogPost;
 			PodcastDate = item.PublishDate;
-			PodcastCurrentLength = 0.5;
 			PodcastDuration = await _soundService.GetTrackDuration (item.Mp3Url);
 		}
 		#endregion

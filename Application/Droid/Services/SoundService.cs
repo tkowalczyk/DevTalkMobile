@@ -16,8 +16,6 @@ namespace DevTalkMobile.Droid
 		private MediaPlayer player;
 		private bool paused;
 
-		private const string Mp3 = @"http://www.montemagno.com/sample.mp3";
-
 		public SoundService ()
 		{
 			
@@ -46,12 +44,7 @@ namespace DevTalkMobile.Droid
 			};
 		}
 
-		public void SetSource (string pathToFile)
-		{
-			
-		}
-
-		public async Task<bool> Play ()
+		public async Task<bool> Play (string pathToFile)
 		{
 			bool ret = false;
 
@@ -72,7 +65,7 @@ namespace DevTalkMobile.Droid
 				ret = true;
 
 			try {
-				await player.SetDataSourceAsync(global::Android.App.Application.Context, Android.Net.Uri.Parse(Mp3));
+				await player.SetDataSourceAsync(global::Android.App.Application.Context, Android.Net.Uri.Parse(pathToFile));
 
 				player.PrepareAsync();
 
