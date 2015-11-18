@@ -3,7 +3,31 @@ DevTalk - Mobile Client
 
 [![Join the chat at https://gitter.im/tkowalczyk/DevTalkMobile](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/tkowalczyk/DevTalkMobile?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-Repository for mobile clients for http://devtalk.pl podcast!
+Repository for mobile clients for [DevTalk](http://devtalk.pl) podcast !
+
+Whole project is prepared in [Xamarin.Forms](https://xamarin.com/forms).
+
+## Installation
+
+### Android
+Please read [Installation instruction](https://github.com/tkowalczyk/DevTalkMobile/blob/master/INSTALLATION.md) to find out how to allow installation from Unknown Sources on Android.
+
+Download the latest *.APK from [here](https://github.com/tkowalczyk/DevTalkMobile/releases) for Android.
+
+### iPhone
+Work in progress...
+
+## Releases
+
+- Google Play
+- AppStore
+
+## Screens
+
+### Android
+
+### iPhone
+
 
 ## Contributing
 
