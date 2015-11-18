@@ -78,24 +78,24 @@ namespace DevTalkMobile.ViewModels
 		private Command pauseCommand;
 		public Command PauseCommand
 		{
-			get { return pauseCommand ?? (pauseCommand = new Command(async () => 
-				await ExecutePauseCommand())); 
+			get { return pauseCommand ?? (pauseCommand = new Command(() => 
+				ExecutePauseCommand())); 
 			}
 		}
 
 		private Command stopCommand;
 		public Command StopCommand
 		{
-			get { return stopCommand ?? (stopCommand = new Command(async () => 
-				await ExecuteStopCommand())); 
+			get { return stopCommand ?? (stopCommand = new Command(() => 
+				ExecuteStopCommand())); 
 			}
 		}
 
 		private Command<FeedItem> getSelectedItemInfoCommand;
 		public Command<FeedItem> GetSelectedItemInfoCommand
 		{
-			get { return getSelectedItemInfoCommand ?? (getSelectedItemInfoCommand = new Command<FeedItem>(async item => 
-				await ExecuteGetSelectedItemInfoCommand(item))); 
+			get { return getSelectedItemInfoCommand ?? (getSelectedItemInfoCommand = new Command<FeedItem>(item => 
+				ExecuteGetSelectedItemInfoCommand(item))); 
 			}
 		}
 		#endregion
@@ -106,22 +106,21 @@ namespace DevTalkMobile.ViewModels
 			await _soundService.Play (pathToFile);
 		}
 
-		private async Task ExecutePauseCommand()
+		private void ExecutePauseCommand()
 		{
-			await _soundService.Pause ();
+			_soundService.Pause ();
 		}
 
-		private async Task ExecuteStopCommand()
+		private void ExecuteStopCommand()
 		{
-			await _soundService.Stop ();
+			_soundService.Stop ();
 		}
 
-		private async Task ExecuteGetSelectedItemInfoCommand(FeedItem item)
+		private void ExecuteGetSelectedItemInfoCommand(FeedItem item)
 		{
 			PodcastTitle = item.Title;
 			PodcastWebPage = item.BlogPost;
 			PodcastDate = item.PublishDate;
-			PodcastDuration = await _soundService.GetTrackDuration (item.Mp3Url);
 		}
 		#endregion
 	}

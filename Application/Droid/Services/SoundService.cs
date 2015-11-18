@@ -27,7 +27,7 @@ namespace DevTalkMobile.Droid
 		{
 			player = new MediaPlayer();
 
-			//Tell our player to sream music
+			//Tell our player to stream music
 			player.SetAudioStreamType(Stream.Music);
 
 			//When we have prepared the song start playback
@@ -38,8 +38,6 @@ namespace DevTalkMobile.Droid
 
 			player.Error += (sender, args) =>
 			{
-				//playback error
-				Console.WriteLine("Error in playback resetting: " + args.What);
 				Stop();//this will clean up and reset properly.
 			};
 		}
@@ -78,7 +76,7 @@ namespace DevTalkMobile.Droid
 			return ret;
 		}
 
-		public async Task<bool> Stop ()
+		public bool Stop ()
 		{
 			bool ret = false;
 
@@ -97,7 +95,7 @@ namespace DevTalkMobile.Droid
 			return ret;
 		}
 
-		public async Task<bool> Pause ()
+		public bool Pause ()
 		{
 			bool ret = false;
 
@@ -115,13 +113,6 @@ namespace DevTalkMobile.Droid
 			return ret;
 		}
 
-		public async Task<string> GetTrackDuration(string pathToFile)
-		{
-			if (player != null)
-				return player.Duration.ToString ();
-			else
-				return null;
-		}
 		#endregion
 	}
 }

@@ -19,7 +19,7 @@ namespace DevTalkMobile.Droid
 		{
 			base.OnCreate (bundle);
 
-			Insights.Initialize("44565244f8f8da0dae39d036732b11fdee93d567", global::Android.App.Application.Context);
+			Insights.Initialize("173b1e209451303ebeb547306f83eb4cad1e3b52", global::Android.App.Application.Context);
 
 			global::Xamarin.Forms.Forms.Init (this, bundle);
 
