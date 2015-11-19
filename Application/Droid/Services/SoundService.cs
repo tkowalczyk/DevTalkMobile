@@ -1,12 +1,12 @@
 ﻿using System;
-
-using DevTalkMobile.Services;
-using DevTalkMobile.Droid;
-
-using Android.Media;
-using Android.Content;
-using Android.OS;
 using System.Threading.Tasks;
+
+using Android.Content;
+using Android.Media;
+using Android.OS;
+
+using DevTalkMobile.Droid;
+using DevTalkMobile.Services;
 
 [assembly: Xamarin.Forms.Dependency (typeof (SoundService))]
 namespace DevTalkMobile.Droid
@@ -21,7 +21,7 @@ namespace DevTalkMobile.Droid
 			
 		}
 
-		#region IAudioOperations implementation
+		#region ISoundService implementation
 
 		private void IntializePlayer()
 		{
