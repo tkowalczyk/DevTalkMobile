@@ -3,12 +3,14 @@ using System.Threading.Tasks;
 
 using DevTalkMobile.Services;
 using DevTalkMobile.iOS;
+using AVFoundation;
 
 [assembly: Xamarin.Forms.Dependency (typeof (SoundService))]
 namespace DevTalkMobile.iOS
 {
 	public class SoundService : ISoundService
 	{
+		private AVPlayer player;
 		private bool paused;
 
 		public SoundService ()
@@ -16,6 +18,11 @@ namespace DevTalkMobile.iOS
 		}
 
 		#region ISoundService implementation
+
+		private void IntializePlayer()
+		{
+			player = new AVPlayer();
+		}
 
 		public Task<bool> Play (string pathToFile)
 		{
