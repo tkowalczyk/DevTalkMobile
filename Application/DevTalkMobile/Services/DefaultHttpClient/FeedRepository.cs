@@ -36,7 +36,6 @@ namespace DevTalkMobile.Services.DefaultHttpClient
 							Description = (string)item.Element("description"),
 							Link = (string)item.Element("link"),
 							PublishDate = (string)item.Element("pubDate"),
-							Category = (string)item.Element("category"),
 							Mp3Url = (string)enclosure.Attribute("url"),
 							Id = id++
 						}).ToList();
@@ -62,7 +61,6 @@ namespace DevTalkMobile.Services.DefaultHttpClient
 							Description = (string)item.Element("description"),
 							Link = (string)item.Element("link"),
 							PublishDate = (string)item.Element("pubDate"),
-							Category = (string)item.Element("category"),
 							Mp3Url = (string)enclosure.Attribute("url"),
 							Id = id++
 						}).ToList().Where(item => item.Title.ToLower().Contains(filter.ToLower())).ToList();

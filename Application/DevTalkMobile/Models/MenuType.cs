@@ -5,7 +5,7 @@ namespace DevTalkMobile.Models
 	public enum MenuType
 	{
 		Home,
-		Podcast,
+		Episode,
 		Chat,
 		About,
 		Social,

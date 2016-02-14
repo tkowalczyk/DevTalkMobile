@@ -103,7 +103,8 @@ namespace DevTalkMobile.ViewModels
 		#region Private Methods
 		private async Task ExecutePlayCommand(string pathToFile)
 		{
-			await _soundService.Play (pathToFile);
+			if(!string.IsNullOrWhiteSpace(pathToFile))
+				await _soundService.Play (pathToFile);
 		}
 
 		private void ExecutePauseCommand()

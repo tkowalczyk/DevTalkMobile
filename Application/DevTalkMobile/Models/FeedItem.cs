@@ -47,13 +47,12 @@ namespace DevTalkMobile.Models
 			set{
 				DateTime time; 
 				if (DateTime.TryParse (value, out time))
-					publishDate = time.ToLocalTime().ToString ("D");
+					publishDate = time.ToLocalTime().ToString ("dd/MM/yyyy");
 				else
 					publishDate = value;
 			}
 		}
 
-		public string Category { get; set; }
 		public string Mp3Url { get; set; }
 		public int Id { get; set; }
 		public string FileImage { get; set; }

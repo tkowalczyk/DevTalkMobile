@@ -14,7 +14,7 @@ namespace DevTalkMobile.Views
 		#region Ctor
 		public PodcastView ()
 		{
-			this.Title = "Podcasts";
+			this.Title = "Episodes";
 
 			#region MainGrid
 			Grid mainGrid = new Grid
@@ -36,7 +36,7 @@ namespace DevTalkMobile.Views
 			#region SearchBar
 			SearchBar searchBar = new SearchBar
 			{
-				Placeholder = "Search by podcast name",
+				Placeholder = "Search by episode name",
 			};
 
 			searchBar.TextChanged += (sender, e) =>

@@ -28,8 +28,8 @@ namespace DevTalkMobile.ViewModels
 			MenuItems.Add(new MenuItem
 				{
 					Id = 1,
-					Title = "Podcasts",
-					MenuType = MenuType.Podcast,
+					Title = "Episodes",
+					MenuType = MenuType.Episode,
 					Icon = "podcast.png"
 				});
 

@@ -74,7 +74,7 @@ namespace DevTalkMobile.Views
 
 						PageSelection = home;
 						break;
-					case MenuType.Podcast:
+					case MenuType.Episode:
 						if (podcast == null)
 							podcast = new PodcastView();
 

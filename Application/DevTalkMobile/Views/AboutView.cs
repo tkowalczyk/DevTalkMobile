@@ -118,12 +118,12 @@ namespace DevTalkMobile.Views
 							},
 							new Span
 							{
-								Text = "Aplikację mobilną wykonał ",
+								Text = "Aplikację mobilną wykonał:\n\n",
 								FontAttributes = FontAttributes.None
 							},
 							new Span
 							{
-								Text = "Tomasz Kowalczyk.\n\n",
+								Text = "Tomasz Kowalczyk (http://kownet.info).\n\n",
 								FontAttributes = FontAttributes.Bold
 							},
 						}

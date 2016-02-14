@@ -40,13 +40,6 @@ namespace DevTalkMobile.ViewModels
 			set { podcastTitle = value; OnPropertyChanged("PodcastTitle"); }
 		}
 
-		private string category;
-		public string Category
-		{
-			get { return category; }
-			set { category = value; OnPropertyChanged("Category"); }
-		}
-
 		private string podcastDate;
 		public string PodcastDate
 		{
@@ -101,7 +94,6 @@ namespace DevTalkMobile.ViewModels
 
 				PodcastTitle = LastFeedItem.Title;
 				PodcastDate = LastFeedItem.PublishDate;
-				Category = LastFeedItem.Category;
 
 				if(LastFeedItem.FileImage != null)
 				{
