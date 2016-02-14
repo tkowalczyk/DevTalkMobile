@@ -30,6 +30,26 @@ namespace DevTalkMobile.Helpers
 			return images;
 		}
 
+		public static string GetLinkToMp3File(this string input)
+		{
+			return (from link in GetLinksFromHTMLString(input)
+				where link.Contains(".mp3")
+				select link).FirstOrDefault();
+		}
+
+		public static List<string> GetLinksFromHTMLString(string htmlString) {
+			List<string> links = new List<string>();
+			string pattern = @"(?<=href="").*?(?="")";
+
+			Regex rgx = new Regex(pattern, RegexOptions.IgnoreCase);
+			MatchCollection matches = rgx.Matches(htmlString);
+
+			for(int i=0, l=matches.Count; i<l; i++) {
+				links.Add(matches[i].Value);
+			}
+
+			return links;
+		}
 
 		public static List<Partner> GetPartners(string htmlContent)
 		{

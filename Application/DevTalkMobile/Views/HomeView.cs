@@ -16,7 +16,7 @@ namespace DevTalkMobile.Views
 			this.Title = "DevTalk";
 
 			var buttonPlay = new Button () {
-				Text = "Play",
+				Text = "Show",
 				BackgroundColor = Color.FromHex ("#FF6600"),
 				WidthRequest = 150
 			};

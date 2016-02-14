@@ -57,13 +57,14 @@ namespace DevTalkMobile.Views
 			Button playButton = new Button ()
 			{
 				Text = "Play",
-				Image = "ic_play.png",
+				Image = "ic_play.png"
 			};
 
 			playButton.Clicked += (sender, e) => 
 			{
 				ViewModel.PlayCommand.Execute(_selectedFeedItem.Mp3Url);
 			};
+			playButton.SetBinding (Button.IsEnabledProperty, "IsPlayEnabled");
 
 			Button stopButton = new Button () 
 			{
@@ -75,6 +76,7 @@ namespace DevTalkMobile.Views
 			{
 				ViewModel.StopCommand.Execute(null);
 			};
+			stopButton.SetBinding (Button.IsEnabledProperty, "IsStopEnabled");
 
 			Button pauseButton = new Button () 
 			{
@@ -86,6 +88,7 @@ namespace DevTalkMobile.Views
 			{
 				ViewModel.PauseCommand.Execute(null);
 			};
+			pauseButton.SetBinding (Button.IsEnabledProperty, "IsPauseEnabled");
 			#endregion
 
 			WebView webPage = new WebView () 

@@ -64,6 +64,27 @@ namespace DevTalkMobile.ViewModels
 			get { return podcastDuration; }
 			set { podcastDuration = value; OnPropertyChanged("PodcastDuration"); }
 		}
+
+		private bool isPlayEnabled = true;
+		public bool IsPlayEnabled
+		{
+			get { return isPlayEnabled; }
+			set { isPlayEnabled = value; OnPropertyChanged("IsPlayEnabled"); }
+		}
+
+		private bool isStopEnabled = false;
+		public bool IsStopEnabled
+		{
+			get { return isStopEnabled; }
+			set { isStopEnabled = value; OnPropertyChanged("IsStopEnabled"); }
+		}
+
+		private bool isPauseEnabled = false;
+		public bool IsPauseEnabled
+		{
+			get { return isPauseEnabled; }
+			set { isPauseEnabled = value; OnPropertyChanged("IsPauseEnabled"); }
+		}
 		#endregion
 
 		#region Commands
@@ -103,18 +124,29 @@ namespace DevTalkMobile.ViewModels
 		#region Private Methods
 		private async Task ExecutePlayCommand(string pathToFile)
 		{
-			if(!string.IsNullOrWhiteSpace(pathToFile))
+			if (!string.IsNullOrWhiteSpace (pathToFile)) 
+			{
 				await _soundService.Play (pathToFile);
+				IsPlayEnabled = false;
+				IsStopEnabled = true;
+				IsPauseEnabled = true;
+			}
 		}
 
 		private void ExecutePauseCommand()
 		{
 			_soundService.Pause ();
+			IsPlayEnabled = true;
+			IsStopEnabled = false;
+			IsPauseEnabled = false;
 		}
 
 		private void ExecuteStopCommand()
 		{
 			_soundService.Stop ();
+			IsPlayEnabled = true;
+			IsStopEnabled = false;
+			IsPauseEnabled = false;
 		}
 
 		private void ExecuteGetSelectedItemInfoCommand(FeedItem item)

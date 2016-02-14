@@ -23,7 +23,6 @@ namespace DevTalkMobile.Services.ModernHttpClient
 		public async Task<List<FeedItem>> GetAll(string rss)
 		{
 			XNamespace content = "http://purl.org/rss/1.0/modules/content/";
-//			XNamespace feedburner = "http://rssnamespace.org/feedburner/ext/1.0";
 
 			var httpClient = new HttpClient (new NativeMessageHandler ());
 
@@ -34,8 +33,6 @@ namespace DevTalkMobile.Services.ModernHttpClient
 					var xdoc = XDocument.Parse(responseString);
 					var id = 0;
 					return (from item in xdoc.Descendants("item")
-//						let enclosure = item.Element("enclosure")
-//						where enclosure != null
 						select new FeedItem
 						{
 							Title = (string)item.Element("title"),
@@ -44,7 +41,7 @@ namespace DevTalkMobile.Services.ModernHttpClient
 							FileImage = (string)item.Element(content.GetName("encoded")).Value.GetImageFile(),
 							Link = (string)item.Element("link"),
 							PublishDate = (string)item.Element("pubDate"),
-//							Mp3Url = (string)enclosure.Attribute("url"),
+							Mp3Url = (string)item.Element(content.GetName("encoded")).Value.GetLinkToMp3File(),
 							BlogPost = (string)item.Element("link"),
 							Id = id++
 						}).ToList();
@@ -53,6 +50,8 @@ namespace DevTalkMobile.Services.ModernHttpClient
 
 		public async Task<List<FeedItem>> GetFilteredFeed(string rss, string filter)
 		{
+			XNamespace content = "http://purl.org/rss/1.0/modules/content/";
+
 			var httpClient = new HttpClient(new NativeMessageHandler());
 
 			var responseString = await httpClient.GetStringAsync(rss);
@@ -62,15 +61,16 @@ namespace DevTalkMobile.Services.ModernHttpClient
 					var xdoc = XDocument.Parse(responseString);
 					var id = 0;
 					return (from item in xdoc.Descendants("item")
-						let enclosure = item.Element("enclosure")
-						where enclosure != null
 						select new FeedItem
 						{
 							Title = (string)item.Element("title"),
 							Description = (string)item.Element("description"),
+							DescriptionLongHtml = (string)item.Element("description"),
+							FileImage = (string)item.Element(content.GetName("encoded")).Value.GetImageFile(),
 							Link = (string)item.Element("link"),
 							PublishDate = (string)item.Element("pubDate"),
-							Mp3Url = (string)enclosure.Attribute("url"),
+							Mp3Url = (string)item.Element(content.GetName("encoded")).Value.GetLinkToMp3File(),
+							BlogPost = (string)item.Element("link"),
 							Id = id++
 						}).ToList().Where(item => item.Title.ToLower().Contains(filter.ToLower())).ToList();
 				});
