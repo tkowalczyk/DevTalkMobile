@@ -4,8 +4,13 @@ namespace DevTalkMobile.Helpers
 {
 	public static class StaticData
 	{
-		public static string RssFeed = "http://feeds.podtrac.com/X97QQF0GG9tf";
+		public static string RssFeed = "http://devtalk.pl/feed";
 		public static string DevTalkWeb = "http://devtalk.pl";
+
+		public static string DevTalkNewsletter = "http://devtalk.pl/newsletter";
+		public static string DevTalkFacebook = "http://devtalk.pl/facebook";
+		public static string DevTalkTwitter = "http://devtalk.pl/twitter";
+		public static string DevTalkItunes = "http://devtalk.pl/itunes";
 
 		public static string MainMenuIcon = "slideout.png";
 

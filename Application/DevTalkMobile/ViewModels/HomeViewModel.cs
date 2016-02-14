@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 
@@ -8,7 +9,6 @@ using DevTalkMobile.Services;
 using DevTalkMobile.Services.ModernHttpClient;
 using Xamarin.Forms;
 using Xamarin;
-using System.Collections.Generic;
 
 namespace DevTalkMobile.ViewModels
 {
