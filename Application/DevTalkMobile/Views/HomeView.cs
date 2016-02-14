@@ -48,9 +48,6 @@ namespace DevTalkMobile.Views
 			};
 			title.SetBinding(Label.TextProperty, "PodcastTitle");
 
-			var category = new Label ();
-			category.SetBinding(Label.TextProperty, "Category");
-
 			var dateLabel = new Label () {
 				Text = "Date:", 
 				FontSize = 15, 
@@ -71,7 +68,6 @@ namespace DevTalkMobile.Views
 				HorizontalOptions = LayoutOptions.StartAndExpand,
 				Children = {
 					title,
-					category,
 					dateLabel,
 					date,
 				}
@@ -116,14 +112,12 @@ namespace DevTalkMobile.Views
 					buttonPlay.TextColor = Color.FromHex("#ffffff");
 					buttonPlay.FontFamily = "HelveticaNeue-Thin";
 					title.FontFamily = "HelveticaNeue-Thin";
-					category.FontFamily = "HelveticaNeue-Thin";
 					date.FontFamily = "HelveticaNeue-Thin";
 					dateLabel.FontFamily = "HelveticaNeue-Thin";
 				},
 				Android: () => {
 					buttonPlay.FontFamily = "sans-serif-condensed";
 					title.FontFamily = "sans-serif-condensed";
-					category.FontFamily = "sans-serif-condensed";
 					date.FontFamily = "sans-serif-condensed";
 					dateLabel.FontFamily = "sans-serif-condensed";
 				}
