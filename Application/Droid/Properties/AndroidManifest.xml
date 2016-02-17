@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0.1-pre" package="info.kownet.devtalk" android:versionCode="2">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionName="1.0.0" package="info.kownet.devtalk" android:versionCode="3">
 	<uses-sdk android:minSdkVersion="15" android:targetSdkVersion="23" />
-	<application android:icon="@drawable/icon" android:label="DevTalk">
-	</application>
+	<application android:icon="@drawable/icon" android:label="DevTalk"></application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>
