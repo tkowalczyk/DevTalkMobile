@@ -22,7 +22,7 @@ namespace DevTalkMobile.ViewModels
 					Id = 0,
 					Title = "Home",
 					MenuType = MenuType.Home,
-					Icon = "home.png"
+					Icon = "ic_home_white_24dp.png"
 				});
 
 			MenuItems.Add(new MenuItem
@@ -30,7 +30,7 @@ namespace DevTalkMobile.ViewModels
 					Id = 1,
 					Title = "Episodes",
 					MenuType = MenuType.Episode,
-					Icon = "podcast.png"
+					Icon = "ic_settings_voice_white_24dp.png"
 				});
 
 			MenuItems.Add(new MenuItem
@@ -38,7 +38,7 @@ namespace DevTalkMobile.ViewModels
 					Id = 2,
 					Title = "About",
 					MenuType = MenuType.About,
-					Icon = "about.png"
+					Icon = "ic_explore_white_24dp.png"
 				});
 
 			MenuItems.Add (new MenuItem 
@@ -46,7 +46,7 @@ namespace DevTalkMobile.ViewModels
 					Id = 3,
 					Title = "Social",
 					MenuType = MenuType.Social,
-					Icon = "social.png"
+					Icon = "ic_face_white_24dp.png"
 				});
 
 			MenuItems.Add (new MenuItem 
@@ -54,7 +54,7 @@ namespace DevTalkMobile.ViewModels
 					Id = 4,
 					Title = "Partners",
 					MenuType = MenuType.Partners,
-					Icon = "partners.png"
+					Icon = "ic_supervisor_account_white_24dp.png"
 				});
 		}
 		#endregion

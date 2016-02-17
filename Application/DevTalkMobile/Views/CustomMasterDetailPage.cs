@@ -33,7 +33,7 @@ namespace DevTalkMobile.Views
 
 			var homeNav = new NavigationPage(master.PageSelection)
 			{
-
+				
 			};
 
 			this.Detail = homeNav;
@@ -52,7 +52,7 @@ namespace DevTalkMobile.Views
 				{
 					newPage = new NavigationPage(master.PageSelection)
 					{
-
+						
 					};
 					pages.Add(menuType, newPage);
 				}

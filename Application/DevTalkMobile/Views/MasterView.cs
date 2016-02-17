@@ -50,9 +50,6 @@ namespace DevTalkMobile.Views
 
 			var cell = new DataTemplate(typeof(CustomControls.ListImageCell));
 
-			cell.SetBinding(TextCell.TextProperty, MenuViewModel.TitlePropertyName);
-			cell.SetBinding(ImageCell.ImageSourceProperty, "Icon");
-
 			listView.ItemTemplate = cell;
 
 			listView.ItemsSource = viewModel.MenuItems;
