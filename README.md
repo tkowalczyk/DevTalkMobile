@@ -19,7 +19,7 @@ Work in progress...
 
 ## Releases
 
-- Google Play
+- [Google Play](https://play.google.com/store/apps/details?id=info.kownet.devtalk)
 - AppStore
 
 ## Screens
