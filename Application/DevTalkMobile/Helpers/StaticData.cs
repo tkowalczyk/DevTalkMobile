@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DevTalkMobile.Helpers
+﻿namespace DevTalkMobile.Helpers
 {
 	public static class StaticData
 	{

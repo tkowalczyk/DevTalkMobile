@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DevTalkMobile.Services
+﻿namespace DevTalkMobile.Services
 {
 	public interface IShare
 	{

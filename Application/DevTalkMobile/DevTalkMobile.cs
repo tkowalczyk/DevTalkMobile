@@ -1,5 +1,5 @@
-﻿using System;
-using DevTalkMobile.Views;
+﻿using DevTalkMobile.Views;
+
 using Xamarin.Forms;
 
 namespace DevTalkMobile

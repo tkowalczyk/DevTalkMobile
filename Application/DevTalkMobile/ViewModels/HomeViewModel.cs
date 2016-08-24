@@ -7,6 +7,7 @@ using DevTalkMobile.Helpers;
 using DevTalkMobile.Models;
 using DevTalkMobile.Services;
 using DevTalkMobile.Services.ModernHttpClient;
+
 using Xamarin.Forms;
 using Xamarin;
 

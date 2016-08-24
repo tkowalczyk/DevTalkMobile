@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DevTalkMobile.Models
+﻿namespace DevTalkMobile.Models
 {
 	public enum MenuType
 	{

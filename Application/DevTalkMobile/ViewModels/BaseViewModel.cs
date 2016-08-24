@@ -6,12 +6,6 @@ namespace DevTalkMobile.ViewModels
 {
 	public class BaseViewModel : INotifyPropertyChanged, IViewModel
 	{
-		#region Ctor
-		public BaseViewModel()
-		{
-		}
-		#endregion
-
 		#region Properties
 		private string title = string.Empty;
 		public const string TitlePropertyName = "Title";

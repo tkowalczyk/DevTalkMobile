@@ -1,9 +1,7 @@
-﻿using System;
-
-using DevTalkMobile.Helpers;
+﻿using DevTalkMobile.Helpers;
 using DevTalkMobile.Services;
 using DevTalkMobile.ViewModels;
-using DevTalkMobile.Views;
+
 using Xamarin.Forms;
 
 namespace DevTalkMobile.Views

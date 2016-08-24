@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+
 using DevTalkMobile.Helpers;
 using DevTalkMobile.Models;
 using DevTalkMobile.Services;
 using DevTalkMobile.Services.ModernHttpClient;
+
 using Xamarin.Forms;
-using System.Collections.Generic;
 using Xamarin;
 
 namespace DevTalkMobile.ViewModels

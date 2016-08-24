@@ -1,10 +1,9 @@
-﻿using System;
-using DevTalkMobile.CustomControls;
+﻿using DevTalkMobile.CustomControls;
 using DevTalkMobile.Helpers;
 using DevTalkMobile.Models;
 using DevTalkMobile.Services;
 using DevTalkMobile.ViewModels;
-using DevTalkMobile.Views.XAML;
+
 using Xamarin.Forms;
 
 namespace DevTalkMobile.Views

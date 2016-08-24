@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+
 using HtmlAgilityPack;
-using System.Diagnostics;
 
 namespace DevTalkMobile.Helpers
 {

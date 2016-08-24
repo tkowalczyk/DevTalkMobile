@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DevTalkMobile.ViewModels
+﻿namespace DevTalkMobile.ViewModels
 {
 	public interface IViewModel
 	{

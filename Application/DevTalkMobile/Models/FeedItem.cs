@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 
 namespace DevTalkMobile.Models
 {
@@ -7,10 +6,6 @@ namespace DevTalkMobile.Models
 	{
 		private const int MAX_TITLE_LENGTH = 35;
 		private const int MAX_DESC_LENGTH = 65;
-
-		public FeedItem ()
-		{
-		}
 
 		private string title;
 		public string Title 

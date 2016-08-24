@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-
-using DevTalkMobile.Models;
+﻿using DevTalkMobile.Models;
 using DevTalkMobile.Services;
+
 using Xamarin.Forms;
 
 namespace DevTalkMobile.Views.XAML

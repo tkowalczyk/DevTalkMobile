@@ -1,11 +1,7 @@
-﻿using System;
-
-namespace DevTalkMobile.ViewModels
+﻿namespace DevTalkMobile.ViewModels
 {
 	public class AboutViewModel : BaseViewModel
 	{
-		public AboutViewModel ()
-		{
-		}
+
 	}
 }

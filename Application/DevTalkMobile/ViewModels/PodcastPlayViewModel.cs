@@ -1,10 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
-using Xamarin.Forms;
+﻿using System.Threading.Tasks;
 
-using DevTalkMobile.ViewModels;
 using DevTalkMobile.Services;
 using DevTalkMobile.Models;
+
+using Xamarin.Forms;
 
 namespace DevTalkMobile.ViewModels
 {
